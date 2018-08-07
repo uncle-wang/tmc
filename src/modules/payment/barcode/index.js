@@ -1,3 +1,3 @@
 import alipay from './alipay';
 import wechat from './wechat';
-export {alipay, wechat};
+export default {alipay, wechat};

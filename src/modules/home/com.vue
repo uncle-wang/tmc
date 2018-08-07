@@ -1,0 +1,79 @@
+<template>
+	<div>
+		<header>
+			<div class="game-num">0期</div>
+			<div class="header-right">
+				<a class="header-btn" id="login_btn" href="login.html">登 录</a>
+			</div>
+		</header>
+		<div class="game-box-wrap">
+			<div class="game-box odd">
+				<div class="game-wrap">
+					<div class="amount-wrap" id="amount_odd">
+						<div class="amount-info">[单]投注总额</div>
+						<div class="amount">0豆</div>
+						<a class="buy-btn">停止投注</a>
+					</div>
+					<div class="probability">当前赔率: 0</div>
+				</div>
+			</div>
+			<div class="game-box even">
+				<div class="game-wrap">
+					<div class="amount-wrap" id="amount_even">
+						<div class="amount-info">[双]投注总额</div>
+						<div class="amount">0豆</div>
+						<a class="buy-btn">停止投注</a>
+					</div>
+					<div class="probability">当前赔率: 0</div>
+				</div>
+			</div>
+		</div>
+		<div class="pending" id="result"></div>
+		<div class="pending" id="disable_time"></div>
+		<div class="pending" id="close_time"></div>
+		<div class="pending" id="next_time">下期游戏马上开始，敬请期待</div>
+		<div class="btn-wrap">
+			<a class="game-btn" id="recharge">我要充值</a>
+			<a class="game-btn" href="personal.html">个人中心</a>
+		</div>
+		<div class="history-wrap"><a class="history-link" href="games.html">查看往期</a></div>
+		<div class="info-wrap">
+			<h2 class="info-title">快速上手</h2>
+			<p class="info-text">1.玩家使用游戏豆进行投注，1元人民币=1游戏豆，支持支付宝充值和提现</p>
+			<p class="info-text">2.每期游戏会公布一个数字作为开奖结果，该数字为游戏期号当日上证指数[000001]指数的收盘价格</p>
+			<p class="info-text">3.玩家可在开奖结果公布前投注"单"或"双"，开奖后开奖数字的整数最后一位为奇数则投注"单"的玩家中奖，为偶数则投注"双"的玩家中奖</p>
+			<p class="info-text">例：</p>
+			<p class="info-text">假设2018年5月3日的上证指数收盘价格为3104.863，整数最后一位4为偶数，则在20180503期游戏中投注"双"的玩家中奖，投注"单"的玩家不中奖</p>
+			<p class="info-text">4.中奖金额=投注金额*中奖赔率，中奖赔率的具体计算规则请到页面下方查看</p>
+
+			<h2 class="info-title">解决彩民的三大痛点</h2>
+			<p class="info-text">1.平台操纵开奖结果，奖池被抽空</p>
+			<p class="info-text">透明彩每期的开奖结果依据上证指数[000001]指数当日的收盘价格而定，该数据全网公开，平台及个人无法操纵，且透明彩每期游戏的奖池公开透明，开奖后将全部发放给中奖玩家(奖池和赔率的具体计算规则请到页面下方查看)</p>
+			<p class="info-text">2.彩民中奖难，返奖率低</p>
+			<p class="info-text">透明彩每期的开奖结果只有"单"和"双"两种情况，中奖率高达50%，返奖率更是达到90%，大幅提高您的投资回报比</p>
+			<p class="info-text">3."充值容易提现难"</p>
+			<p class="info-text">透明彩郑重承诺，在账户余额充足的情况下，平台绝不以任何形式的理由拒绝、拖延您的提现申请</p>
+			<p class="info-text">关于提现的具体规则请到"个人中心-提现"中查看</p>
+
+			<h2 class="info-title">关于上证指数</h2>
+			<p class="info-text">上证指数相关数据可在各大权威机构查看并确认，本网站首选<a href="http://www.sse.com.cn/">上海证券交易所</a>公布的数据为参考依据</p>
+
+			<h2 class="info-title">奖池和赔率</h2>
+			<p class="info-text">1.每期游戏的奖池总额为当期所有投注金额总和的90%(另外的10%将作为平台的运维成本和收益)</p>
+			<p class="info-text">2.中奖赔率=奖池总额/获胜方投注总额</p>
+			<p class="info-text">如在某期游戏中，投注"单"的游戏豆总额为1000，投注"双"的游戏豆总额为2000，则奖池总额为(1000+2000)*0.9=2700，"单"的中奖赔率为2700/1000=2.7，"双"的赔率为2700/2000=1.35</p>
+			<p class="info-text">假设玩家A在该期投注了"单"，金额为100游戏豆，且该期的开奖结果为奇数，则该次投注的中奖金额为100*2.7=270游戏豆</p>
+			<p class="info-text">3.赔率精确到小数点后2位，如2.6864将按照2.68计算</p>
+
+			<h2 class="info-title">投注及开奖时间</h2>
+			<p class="info-text">1.通常情况下，上证指数[000001]市场每日15:00收盘，本站系统将在14:30(提前半小时)停止接收投注订单，届时奖池总额及赔率将不再发生变化，在15:30前公布开奖结果并完成奖励发放，玩家亦可提前去其他权威机构查询数据并确认结果</p>
+			<p class="info-text">2.由于上证市场在双休日、法定节假日等时间暂停交易，本站的游戏进度将与其保持一致，但系统会提前开放下一期游戏，在此期间玩家可以正常投注，届时该期游戏接收投注的时间将会被拉长</p>
+
+			<h2 class="info-title">游戏愉快</h2>
+			<p class="info-text">1.请您保护好账号信息，避免账号被盗用给您造成损失</p>
+			<p class="info-text">2.游戏中遇到任何问题，请到个人中心-问题反馈与我们联系</p>
+		</div>
+	</div>
+</template>
+<style lang="less" src="./com.less"></style>
+<script src="./com.js"></script>
