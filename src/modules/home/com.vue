@@ -75,5 +75,5 @@
 		</div>
 	</div>
 </template>
-<style lang="less" src="./com.less"></style>
+<style lang="less" src="./com.less" scoped></style>
 <script src="./com.js"></script>
