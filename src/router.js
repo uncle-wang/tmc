@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import {home, payment} from './modules';
+import * as modules from './modules';
 
 Vue.use(VueRouter);
 
@@ -14,13 +14,21 @@ const router = new VueRouter({
 		},
 		{
 			path: '/home',
-			component: home
+			component: modules.home
+		},
+		{
+			path: '/login',
+			component: modules.login
 		},
 		{
 			path: '/pay/:quota',
-			component: payment,
+			component: modules.payment,
 			props: true
 		},
+		{
+			path: '/me',
+			component: modules.personal
+		}
 	]
 });
 

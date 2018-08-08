@@ -1,0 +1,82 @@
+<template>
+	<div>
+		<div class="my-card-wrap">
+			<a class="home-link" href="index.html">&lt;&nbsp;返回首页</a>
+			<div class="my-info-wrap">
+				<div class="my-info-icon signed"></div>
+				<div class="my-info-icon unsigned" id="icon_default"></div>
+				<div class="my-info-name signed"></div>
+				<div class="my-info-name unsigned"><input id="login_btn" type="button" value="点击登录"></div>
+			</div>
+			<div class="my-pay-wrap">
+				<div class="my-pay-card">
+					<div class="my-pay-text" id="balance_text">余豆: 0</div>
+				</div>
+				<div class="my-pay-card">
+					<a class="my-pay-text" id="recharge_btn">充值</a>
+				</div>
+				<div class="my-pay-card">
+					<a class="my-pay-text" id="pickup_btn">提现</a>
+				</div>
+			</div>
+		</div>
+		<ul class="func-list">
+			<li class="func-item-wrap">
+				<a class="func-item-link" href="orders.html">
+					<div class="func-item-title">投注记录</div>
+				</a>
+			</li>
+			<li class="func-item-wrap">
+				<a class="func-item-link" href="recharge.html">
+					<div class="func-item-title">充值记录</div>
+				</a>
+			</li>
+			<li class="func-item-wrap">
+				<a class="func-item-link" href="pickup.html">
+					<div class="func-item-title">提现记录</div>
+				</a>
+			</li>
+			<li class="func-item-wrap">
+				<a class="func-item-link" href="password.html">
+					<div class="func-item-title">修改密码</div>
+				</a>
+			</li>
+			<li class="func-item-wrap">
+				<a class="func-item-link" href="alipay.html" id="alipay_link">
+					<div class="func-item-title">
+						支付宝
+						<span class="func-item-text">用于提现收款，点击设置</span>
+						<span class="func-item-text top">已绑定，点击更换</span>
+						<span class="func-item-des"></span>
+					</div>
+				</a>
+			</li>
+			<!--li class="func-item-wrap">
+				<a class="func-item-link">
+					<div class="func-item-title">问题反馈</div>
+				</a>
+			</li-->
+		</ul>
+		<div class="logout-wrap signed"><input id="logout_btn" class="logout-btn" type="button" value="退出登录"></input></div>
+		<div id="pickup_wrap" class="layer">
+			<div class="pickup-box">
+				<div class="pickup-amount">
+					<input type="number" id="pickup_amount" class="pickup-input" autofocus="autofocus">
+					豆
+					<a id="pickup_all">全部提现</a>
+				</div>
+				<a id="pickup_submit">确认提现</a>
+				<div class="pickup-info">
+					<p>1、提现数额必须为整数，且<span class="markup">单笔提现数额不能少于100</span></p>
+					<p>2、提现服务将收取<span class="markup">2%的手续费</span>，手续费从账户余豆中扣除，余豆不足将无法提现</p>
+					<p>3、手续费精确到整数位，如提现金额为124，124*2%=2.48，则将收取的手续费为3</p>
+					<p>4、每个账号<span class="markup">每日限提现一次</span>，申请提现后取消依然会扣除当日的提现机会，请知悉</p>
+					<p>5、点击全部提现，将自动为您计算扣除手续费后可提现的最大数额</p>
+					<p>6、1个工作日内到账</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+<style lang="less" scoped src="./com.less"></style>
+<script src="./com.js"></script>

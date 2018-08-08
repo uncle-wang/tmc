@@ -1,3 +1,5 @@
 import home from './home';
+import login from './login';
 import payment from './payment';
-export {home, payment};
+import personal from './personal';
+export {home, login, payment, personal};
