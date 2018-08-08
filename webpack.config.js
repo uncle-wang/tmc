@@ -1,10 +1,12 @@
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require("clean-webpack-plugin");
 module.exports = {
-	mode: "production",
+	mode: "development",
 	entry:  __dirname + "/src/main.js",
 	output: {
 		path: __dirname + "/build",
-		filename: "bundle.js"
+		filename: "bundle-[hash].js"
 	},
 	devServer: {
 		port: "8082",
@@ -55,11 +57,19 @@ module.exports = {
 		]
 	},
 	plugins: [
-		new VueLoaderPlugin()
+		new VueLoaderPlugin(),
+		new HtmlWebpackPlugin({
+			template: __dirname + '/src/index.tmpl.html'
+		}),
+		new CleanWebpackPlugin('build/*.*', {
+			root: __dirname,
+			verbose: true,
+			dry: false
+		}),
 	],
 	resolve: {
 		alias: {
-			'vue': 'vue/dist/vue.min.js'
+			'vue': 'vue/dist/vue.js'
 		}
 	},
 };
