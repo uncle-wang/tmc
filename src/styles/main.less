@@ -1,3 +1,5 @@
+@import './../base';
+
 * {
 	margin: 0;
 	padding: 0;
@@ -10,4 +12,26 @@ body {
 
 #app {
 	overflow: hidden;
+}
+
+.button {
+	border: none;
+	outline: none;
+	width: 100%;
+	display: block;
+	font-size: 18px;
+	border-radius: 24px;
+	background: -webkit-linear-gradient(left, @gradientStart, @baseColor) no-repeat;
+	height: 48px;
+	color: #fff;
+	line-height: 48px;
+	text-align: center;
+	text-decoration: none;
+	outline: none;
+	&.outline {
+		height: 46px;
+		border: 1px solid @baseColor;
+		background: #fff;
+		color: @baseColor;
+	}
 }

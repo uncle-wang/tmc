@@ -8,9 +8,9 @@
 				<a class="func-btn" href="register.html">快速注册</a>
 				<a class="func-btn" href="reset.html">找回密码</a>
 			</div>
-			<div class="submit-wrap"><input type="submit" value="登 录"></div>
+			<div class="submit-wrap"><input type="submit" class="button" value="登 录"></div>
 		</form>
-		<a class="home-link" @click="navigator.toHome">随便逛逛</a>
+		<a class="button outline home-link" @click="navigator.toHome">随便逛逛</a>
 		<div class="error-text"></div>
 		<div class="info-text"></div>
 	</div>
@@ -60,31 +60,12 @@
 	.submit-wrap {
 		margin-top: 32px;
 		input {
-			border: none;
-			outline: none;
-			width: 100%;
-			display: block;
-			font-size: 18px;
-			border-radius: 24px;
 			margin: 8px 0;
-			background: -webkit-linear-gradient(left, @gradientStart, @baseColor) no-repeat;
-			color: #fff;
-			height: 48px;
-			color: #fff;
 		}
 	}
 	.home-link {
-		display: block;
-		height: 46px;
-		line-height: 48px;
-		border: 1px solid @baseColor;
-		border-radius: 24px;
-		text-align: center;
-		color: @baseColor;
-		font-size: 18px;
-		text-decoration: none;
 		margin: 12px 24px 0;
-		outline: 0;
+		width: auto;
 	}
 	.error-text {
 		display: none;

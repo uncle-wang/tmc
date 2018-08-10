@@ -26,6 +26,11 @@ const router = new VueRouter({
 			component: modules.recharge
 		},
 		{
+			path: '/paybind/:payment',
+			component: modules.paybind,
+			props: true
+		},
+		{
 			path: '/me',
 			component: modules.personal
 		}

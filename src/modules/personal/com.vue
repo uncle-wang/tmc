@@ -42,7 +42,7 @@
 				</a>
 			</li>
 			<li class="func-item-wrap">
-				<a class="func-item-link" href="alipay.html" id="alipay_link">
+				<a class="func-item-link" id="alipay_link" @click="navigator.toPayBind(0)">
 					<div class="func-item-title">
 						支付宝
 						<span class="func-item-text">用于提现收款，点击设置</span>

@@ -20,4 +20,8 @@ const toPersonal = () => {
 	router.push('/me');
 };
 
-export default {toRecharge, toLogin, toHome, toPersonal};
+const toPayBind = (payment) => {
+	router.push('/paybind/' + payment);
+};
+
+export default {toRecharge, toLogin, toHome, toPersonal, toPayBind};
