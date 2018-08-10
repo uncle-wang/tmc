@@ -1,7 +1,7 @@
 import router from './router';
 
 const toPay = () => {
-	router.push('/pay');
+	router.push('/recharge');
 };
 
 const toLogin = (redirect) => {

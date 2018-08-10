@@ -9,15 +9,15 @@
 				<div class="my-info-name unsigned"><input id="login_btn" type="button" value="点击登录"></div>
 			</div>
 			<div class="my-pay-wrap">
-				<div class="my-pay-card">
-					<div class="my-pay-text" id="balance_text">余豆: 0</div>
-				</div>
-				<div class="my-pay-card">
-					<a class="my-pay-text" id="recharge_btn" @click="navigator.toPay">充值</a>
-				</div>
-				<div class="my-pay-card">
-					<a class="my-pay-text" id="pickup_btn">提现</a>
-				</div>
+				<a class="my-pay-card">
+					<i class="iconfont icon-yue"></i>余额: 0
+				</a>
+				<a class="my-pay-card" @click="navigator.toPay">
+					<i class="iconfont icon-chongzhi0101"></i>充值
+				</a>
+				<a class="my-pay-card">
+					<i class="iconfont icon-tixian1"></i>提现
+				</a>
 			</div>
 		</div>
 		<ul class="func-list">

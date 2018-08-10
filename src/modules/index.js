@@ -1,5 +1,10 @@
+// 主页
 import home from './home';
+// 登录
 import login from './login';
-import payment from './payment';
+// 充值
+import recharge from './recharge';
+// 个人中心
 import personal from './personal';
-export {home, login, payment, personal};
+
+export {home, login, recharge, personal};

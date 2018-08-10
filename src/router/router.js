@@ -22,8 +22,8 @@ const router = new VueRouter({
 			props: (route) => ({redirect: route.query.redirect})
 		},
 		{
-			path: '/pay',
-			component: modules.payment
+			path: '/recharge',
+			component: modules.recharge
 		},
 		{
 			path: '/me',
