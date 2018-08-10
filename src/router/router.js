@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import * as modules from './modules';
+import * as modules from './../modules';
 
 Vue.use(VueRouter);
 
@@ -18,12 +18,12 @@ const router = new VueRouter({
 		},
 		{
 			path: '/login',
-			component: modules.login
+			component: modules.login,
+			props: (route) => ({redirect: route.query.redirect})
 		},
 		{
-			path: '/pay/:quota',
-			component: modules.payment,
-			props: true
+			path: '/pay',
+			component: modules.payment
 		},
 		{
 			path: '/me',

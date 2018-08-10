@@ -1,17 +1,25 @@
 <template>
 	<div>
-		<div class="payment-select" v-show="!barcode.show">
-			<div class="title">请选择支付方式</div>
+		<div class="quota-select" v-show="process===0">
+			<p class="title">请选择充值金额</p>
+			<ul>
+				<li class="quota-item" v-for="quota in quotaList">
+					<span class="quota">{{quota}}</span>
+				</li>
+			</ul>
+		</div>
+		<div class="payment-select" v-show="process===1">
+			<p class="title">请选择支付方式</p>
 			<div class="pay-list">
 				<a class="payment" @click="showAlipay()"><i class="iconfont icon-iconfontalipay"></i></a>
 				<a class="payment" @click="showWechat()"><i class="iconfont icon-wechat"></i></a>
 			</div>
 		</div>
-		<div class="barcode" v-show="barcode.show">
+		<div class="barcode" v-show="process===2">
 			<img :src="barcode.alipayImage" v-show="payment===0" class="code-image">
 			<img :src="barcode.wechatImage" v-show="payment===1" class="code-image wechat">
 			<div class="choice">
-				<p>其他付款方式</p>
+				<p>选择其他付款方式</p>
 				<i v-show="payment===1" @click="showAlipay" class="iconfont little icon-iconfontalipay"></i>
 				<i v-show="payment===0" @click="showWechat" class="iconfont little icon-wechat"></i>
 			</div>
@@ -22,8 +30,13 @@
 <style lang="less" scoped>
 	.title {
 		font-size: 24px;
-		margin-top: 40%;
 		text-align: center;
+	}
+	.quota-select {
+		margin-top: 36%;
+	}
+	.payment-select {
+		margin-top: 40%;
 	}
 	.pay-list {
 		overflow: hidden;

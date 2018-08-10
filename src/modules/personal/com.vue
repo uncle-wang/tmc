@@ -13,7 +13,7 @@
 					<div class="my-pay-text" id="balance_text">余豆: 0</div>
 				</div>
 				<div class="my-pay-card">
-					<a class="my-pay-text" id="recharge_btn">充值</a>
+					<a class="my-pay-text" id="recharge_btn" @click="navigator.toPay">充值</a>
 				</div>
 				<div class="my-pay-card">
 					<a class="my-pay-text" id="pickup_btn">提现</a>

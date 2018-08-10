@@ -3,7 +3,7 @@
 		<header>
 			<div class="game-num">0期</div>
 			<div class="header-right">
-				<a class="header-btn" id="login_btn" href="login.html">登 录</a>
+				<a class="header-btn" id="login_btn" @click="navigator.toLogin()">登 录</a>
 			</div>
 		</header>
 		<div class="game-box-wrap">

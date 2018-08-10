@@ -10,18 +10,19 @@
 			</div>
 			<div class="submit-wrap"><input type="submit" value="登 录"></div>
 		</form>
-		<a class="home-link" href="index.html">随便逛逛</a>
+		<a class="home-link" @click="navigator.toHome">随便逛逛</a>
 		<div class="error-text"></div>
 		<div class="info-text"></div>
 	</div>
 </template>
 <script src="./com.js"></script>
 <style lang="less" scoped>
+	@import './../../base';
 	.page-title {
 		font-size: 20px;
 		padding: 0 24px;
 		text-align: center;
-		color: #009688;
+		color: @baseColor;
 		font-family: Arial;
 		margin-top: 12%;
 	}
@@ -31,7 +32,7 @@
 	}
 	.input-wrap {
 		margin-top: 48px;
-		border-bottom: 1px solid #009688;
+		border-bottom: 1px solid @baseColor;
 		padding: 0 5px 8px;
 		input {
 			width: 100%;
@@ -66,7 +67,7 @@
 			font-size: 18px;
 			border-radius: 24px;
 			margin: 8px 0;
-			background: -webkit-linear-gradient(left, #00bbaa, #009688) no-repeat;
+			background: -webkit-linear-gradient(left, @gradientStart, @baseColor) no-repeat;
 			color: #fff;
 			height: 48px;
 			color: #fff;
@@ -76,10 +77,10 @@
 		display: block;
 		height: 46px;
 		line-height: 48px;
-		border: 1px solid #009688;
+		border: 1px solid @baseColor;
 		border-radius: 24px;
 		text-align: center;
-		color: #009688;
+		color: @baseColor;
 		font-size: 18px;
 		text-decoration: none;
 		margin: 12px 24px 0;
