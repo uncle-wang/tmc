@@ -1,6 +1,6 @@
 import router from './router';
 
-const toPay = () => {
+const toRecharge = () => {
 	router.push('/recharge');
 };
 
@@ -16,4 +16,8 @@ const toHome = () => {
 	router.push('/home');
 };
 
-export default {toPay, toLogin, toHome};
+const toPersonal = () => {
+	router.push('/me');
+};
+
+export default {toRecharge, toLogin, toHome, toPersonal};

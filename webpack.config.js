@@ -2,7 +2,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 module.exports = {
-	mode: "development",
+	mode: "production",
 	entry:  __dirname + "/src/main.js",
 	output: {
 		path: __dirname + "/build",
@@ -69,7 +69,7 @@ module.exports = {
 	],
 	resolve: {
 		alias: {
-			'vue': 'vue/dist/vue.js'
+			'vue': 'vue/dist/vue.min.js'
 		}
 	},
 };

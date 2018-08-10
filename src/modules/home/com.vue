@@ -33,8 +33,8 @@
 		<div class="pending" id="close_time"></div>
 		<div class="pending" id="next_time">下期游戏马上开始，敬请期待</div>
 		<div class="btn-wrap">
-			<a class="game-btn" id="recharge">我要充值</a>
-			<a class="game-btn" href="personal.html">个人中心</a>
+			<a class="game-btn" id="recharge" @click="navigator.toRecharge">我要充值</a>
+			<a class="game-btn" @click="navigator.toPersonal">个人中心</a>
 		</div>
 		<div class="history-wrap"><a class="history-link" href="games.html">查看往期</a></div>
 		<div class="info-wrap">

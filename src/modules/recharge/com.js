@@ -23,6 +23,14 @@ export default {
 		setQuota: function(quota) {
 			this.quota = quota;
 			this.process = 1;
+		},
+		// 重新选择金额
+		toQuotaPage: function() {
+			this.process = 0;
+		},
+		// 重新选择支付方式
+		toPayMethodsPage: function() {
+			this.process = 1;
 		}
 	},
 	computed: {
@@ -34,5 +42,5 @@ export default {
 		wechatImage: function() {
 			return barcode.wechat['q' + this.quota];
 		},
-	}
+	},
 };

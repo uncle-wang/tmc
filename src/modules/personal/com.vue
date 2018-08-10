@@ -12,7 +12,7 @@
 				<a class="my-pay-card">
 					<i class="iconfont icon-yue"></i>余额: 0
 				</a>
-				<a class="my-pay-card" @click="navigator.toPay">
+				<a class="my-pay-card" @click="navigator.toRecharge">
 					<i class="iconfont icon-chongzhi0101"></i>充值
 				</a>
 				<a class="my-pay-card">
