@@ -13,11 +13,21 @@ Vue.component('code-input', codeInput);
 import {currency} from './filters';
 Vue.filter('currency', currency);
 
+// api
+import api from './api';
+// store
+import store from './store';
+
 const app = new Vue({
 
 	el: '#app',
 	router,
+	store,
 	data: {
 		navigator
+	},
+	beforeMount: function() {
+		// 获取登录信息
+		api.getUserInfo();
 	}
 });

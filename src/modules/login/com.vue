@@ -1,9 +1,9 @@
 <template>
 	<div>
 		<div class="page-title">欢迎登录</div>
-		<form id="login_form" autocomplete="false">
-			<div class="input-wrap"><input type="text" name="tel" placeholder="输入手机号"></div>
-			<div class="input-wrap"><input type="password" name="password" placeholder="请输入密码"></div>
+		<form id="login_form" autocomplete="false" @submit.prevent="login">
+			<div class="input-wrap"><input type="text" v-model="tel" placeholder="输入手机号"></div>
+			<div class="input-wrap"><input type="password" v-model="password" placeholder="请输入密码"></div>
 			<div class="func-wrap">
 				<a class="func-btn" href="register.html">快速注册</a>
 				<a class="func-btn" href="reset.html">找回密码</a>

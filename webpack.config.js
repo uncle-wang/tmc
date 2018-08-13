@@ -12,7 +12,13 @@ module.exports = {
 		port: "8082",
 		contentBase: "./build",
 		historyApiFallback: true,
-		inline: true
+		inline: true,
+		proxy: {
+			'/': {
+				target: 'http://localhost:6932/',
+				secure: false
+			}
+		}
 	},
 	module: {
 		rules: [
@@ -25,9 +31,18 @@ module.exports = {
 				use: {
 					loader: 'babel-loader',
 					options: {
-						presets: ['env', 'stage-3']
-					}
-				}
+						presets: ['env', 'stage-3'],
+						plugins: [[
+							"transform-runtime",
+							{
+								"helpers": false,
+								"polyfill": false,
+								"regenerator": true,
+								"moduleName": "babel-runtime"
+							}
+						]]
+					},
+				},
 			},
 			{
 				test: /\.css$/,
