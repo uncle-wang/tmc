@@ -8,5 +8,7 @@ import recharge from './recharge';
 import paybind from './paybind';
 // 个人中心
 import personal from './personal';
+// 提现
+import pickup from './pickup';
 
-export {home, login, recharge, paybind, personal};
+export {home, login, recharge, paybind, personal, pickup};

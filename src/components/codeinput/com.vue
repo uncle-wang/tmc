@@ -1,6 +1,6 @@
 <template>
 	<div class="input-wrap pend">
-		<input type="text" class="input" name="code" placeholder="短信验证码" :value="value" @input="$emit('input', $event.target.value)">
+		<input type="text" placeholder="短信验证码" :value="value" @input="$emit('input', $event.target.value)">
 		<div class="code-wrap">
 			<a id="code_btn" class="code-btn" @click="getCode" v-show="canGet">获取验证码</a>
 			<span class="code-counter" v-show="!canGet">60秒</span>

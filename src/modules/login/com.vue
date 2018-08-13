@@ -10,7 +10,7 @@
 			</div>
 			<div class="submit-wrap"><input type="submit" class="button" value="登 录"></div>
 		</form>
-		<a class="button outline home-link" @click="navigator.toHome">随便逛逛</a>
+		<a class="button outline home-link" @click="$root.navigator.toHome">随便逛逛</a>
 		<div class="error-text"></div>
 		<div class="info-text"></div>
 	</div>

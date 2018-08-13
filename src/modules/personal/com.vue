@@ -12,10 +12,10 @@
 				<a class="my-pay-card">
 					<i class="iconfont icon-yue"></i>余额: 0
 				</a>
-				<a class="my-pay-card" @click="navigator.toRecharge">
+				<a class="my-pay-card" @click="$root.navigator.toRecharge">
 					<i class="iconfont icon-chongzhi0101"></i>充值
 				</a>
-				<a class="my-pay-card">
+				<a class="my-pay-card" @click="$root.navigator.toPickup">
 					<i class="iconfont icon-tixian1"></i>提现
 				</a>
 			</div>
@@ -42,7 +42,7 @@
 				</a>
 			</li>
 			<li class="func-item-wrap">
-				<a class="func-item-link" id="alipay_link" @click="navigator.toPayBind('type')">
+				<a class="func-item-link" id="alipay_link" @click="$root.navigator.toPayBind('type')">
 					<div class="func-item-title">
 						支付宝/微信
 						<span class="func-item-text">用于提现收款，点击设置</span>

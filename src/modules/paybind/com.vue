@@ -13,7 +13,8 @@
 				<div class="title">绑定{{paymentName}}账号</div>
 				<form autocomplete="false" v-on:submit.prevent="bindPayment">
 					<div class="line">
-						<div class="input-wrap"><input class="input" type="text" :placeholder="paymentName+'账号'" name="alipay"></div>
+						<div class="input-wrap"><input type="text" :placeholder="paymentName+'账号'"></div>
+						<div class="input-wrap"><input type="text" placeholder="收款人真实姓名"></div>
 						<code-input v-model="code"></code-input>
 					</div>
 					<div class="button-wrap"><input class="button" type="submit" value="确 定"></div>

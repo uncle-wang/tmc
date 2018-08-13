@@ -12,6 +12,7 @@
 <style lang="less" scoped>
 	@import './../../base';
 	.back-link {
+		z-index: 3;
 		position: fixed;
 		left: 5px;
 		top: 8px;

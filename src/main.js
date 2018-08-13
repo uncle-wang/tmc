@@ -1,6 +1,6 @@
 import Vue from 'vue';
 // 路由配置
-import {router} from './router/index.js';
+import {router, navigator} from './router/index.js';
 // 基础样式
 import './styles';
 
@@ -16,5 +16,8 @@ Vue.filter('currency', currency);
 const app = new Vue({
 
 	el: '#app',
-	router
+	router,
+	data: {
+		navigator
+	}
 });

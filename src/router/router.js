@@ -33,7 +33,11 @@ const router = new VueRouter({
 		{
 			path: '/me',
 			component: modules.personal
-		}
+		},
+		{
+			path: '/pickup',
+			component: modules.pickup
+		},
 	]
 });
 

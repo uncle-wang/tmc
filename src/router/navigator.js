@@ -24,4 +24,8 @@ const toPayBind = (payment) => {
 	router.push('/paybind/' + payment);
 };
 
-export default {toRecharge, toLogin, toHome, toPersonal, toPayBind};
+const toPickup = () => {
+	router.push('/pickup');
+};
+
+export default {toRecharge, toLogin, toHome, toPersonal, toPayBind, toPickup};

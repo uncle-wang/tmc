@@ -3,7 +3,7 @@
 		<header>
 			<div class="game-num">0期</div>
 			<div class="header-right">
-				<a class="header-btn" id="login_btn" @click="navigator.toLogin()">登 录</a>
+				<a class="header-btn" id="login_btn" @click="$root.navigator.toLogin()">登 录</a>
 			</div>
 		</header>
 		<div class="game-box-wrap">
@@ -33,8 +33,8 @@
 		<div class="pending" id="close_time"></div>
 		<div class="pending" id="next_time">下期游戏马上开始，敬请期待</div>
 		<div class="btn-wrap">
-			<a class="game-btn" id="recharge" @click="navigator.toRecharge">我要充值</a>
-			<a class="game-btn" @click="navigator.toPersonal">个人中心</a>
+			<a class="game-btn" id="recharge" @click="$root.navigator.toRecharge">我要充值</a>
+			<a class="game-btn" @click="$root.navigator.toPersonal">个人中心</a>
 		</div>
 		<div class="history-wrap"><a class="history-link" href="games.html">查看往期</a></div>
 		<div class="info-wrap">
