@@ -13,10 +13,8 @@ Vue.component('code-input', codeInput);
 import {currency} from './filters';
 Vue.filter('currency', currency);
 
-// api
-import api from './api';
-// store
-import store from './store';
+// 服务
+import {api, store} from './service';
 
 const app = new Vue({
 

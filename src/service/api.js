@@ -1,6 +1,9 @@
 import axios from 'axios';
 import store from './store';
 
+const resolve = d => Promise.resolve(d);
+const reject  = d => Promise.reject(d);
+
 const ajax = (api, params) => {
 	return axios({
 		method: 'POST',
@@ -9,16 +12,13 @@ const ajax = (api, params) => {
 		url: api,
 	}).then(res => {
 		if (res.status === 200) {
-			return Promise.resolve(res.data);
+			return resolve(res.data);
 		}
 		else {
-			return Promise.reject();
+			return reject({status: 1004});
 		}
 	});
 };
-
-const resolve = d => Promise.resolve(d);
-const reject  = d => Promise.reject(d);
 
 export default {
 
@@ -28,7 +28,7 @@ export default {
 		if (data.status === 1000) {
 			store.commit('signed', data.userInfo);
 		}
-		else if (data.status === 1001) {
+		else {
 			store.commit('unsigned');
 		}
 	},
@@ -37,6 +37,10 @@ export default {
 		const data = await ajax('sign', {tel, password});
 		if (data.status === 1000) {
 			store.commit('signed', data.userInfo);
+			return resolve();
+		}
+		// 已登录
+		else if (data.status === 2004) {
 			return resolve();
 		}
 		else {
@@ -50,8 +54,19 @@ export default {
 			store.commit('unsigned');
 			return resolve();
 		}
+		else if (status === 1001) {
+			return resolve();
+		}
 		else {
 			return reject(status);
 		}
-	}
+	},
+	async updatePassword(oldpassword, newpassword) {
+
+		const data = await ajax('updatePassword', {oldpassword, newpassword});
+		if (data.status === 1000) {
+			return resolve();
+		}
+		return reject(data);
+	},
 };

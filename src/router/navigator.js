@@ -4,7 +4,7 @@ const toRecharge = () => {
 	router.push('/recharge');
 };
 
-const toLogin = (redirect) => {
+const toLogin = () => {
 	router.push('/login');
 };
 
