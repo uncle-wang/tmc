@@ -29,19 +29,19 @@
 	width: 64px;
 	height: 64px;
 	border-radius: 32px;
-	background-color: #fff;
-	color: #e91e63;
 	overflow: hidden;
 	text-align: center;
-	line-height: 66px;
+	line-height: 64px;
 	font-size: 24px;
 	margin: 0 auto;
-}
-.my-info-icon.unsigned {
-	background-position: center;
-	background-repeat: no-repeat;
-	background-image: url(login.png);
-	background-size: cover;
+	&.signed {
+		background-color: #eee;
+		color: @baseColor;
+	}
+	.iconfont {
+		font-size: 64px;
+		color: #eee;
+	}
 }
 .my-info-name {
 	color: #fff;
@@ -71,15 +71,19 @@
 	box-sizing: border-box;
 	border-right: 1px solid #eee;
 	outline: none;
+	font-size: 14px;
+	.iconfont {
+		font-size: 20px;
+		position: relative;
+		top: 3px;
+		margin-right: 2px;
+	}
+	.icon-yue {
+		font-size: 22px;
+	}
 }
 .my-pay-card:last-child {
 	border-right: none;
-}
-.iconfont {
-	font-size: 22px;
-	position: relative;
-	top: 3px;
-	margin-right: 4px;
 }
 .func-list {
 	background-color: #fff;

@@ -5,11 +5,7 @@ const toRecharge = () => {
 };
 
 const toLogin = (redirect) => {
-	let o = {path: '/login'};
-	if (redirect) {
-		o.query = {redirect: encodeURIComponent(redirect)}
-	}
-	router.push(o);
+	router.push('/login');
 };
 
 const toHome = () => {

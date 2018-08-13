@@ -36,10 +36,22 @@ export default {
 
 		const data = await ajax('sign', {tel, password});
 		if (data.status === 1000) {
+			store.commit('signed', data.userInfo);
 			return resolve();
 		}
 		else {
 			return reject(data);
 		}
 	},
+	async logout() {
+
+		const {status} = await ajax('logout');
+		if (status === 1000) {
+			store.commit('unsigned');
+			return resolve();
+		}
+		else {
+			return reject(status);
+		}
+	}
 };

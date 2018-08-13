@@ -8,16 +8,27 @@ const store = new Vuex.Store({
 		userInfo: {
 			signed: false,
 			tel: null,
+			balance: 0,
+			alipay: null,
+			wechat: null
 		},
 	},
 	mutations: {
 		unsigned(state) {
-			state.userInfo.signed = false;
-			state.userInfo.tel = null;
+			const userInfo = state.userInfo;
+			userInfo.signed = false;
+			userInfo.tel = null;
+			userInfo.balance = null;
+			userInfo.alipay = null;
+			userInfo.wechat = null;
 		},
-		signed(state, userInfo) {
-			state.userInfo.signed = true;
-			state.userInfo.tel = userInfo.tel;
+		signed(state, userInfoData) {
+			const userInfo = state.userInfo;
+			userInfo.signed = true;
+			userInfo.tel = userInfoData.tel;
+			userInfo.balance = userInfoData.balance;
+			userInfo.alipay = userInfoData.alipay;
+			userInfo.wechat = userInfoData.wechat;
 		},
 	}
 });

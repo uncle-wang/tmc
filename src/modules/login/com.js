@@ -1,6 +1,5 @@
 import api from './../../api';
 export default {
-	props: ['redirect'],
 	data: function() {
 		return {
 			tel: '',
@@ -10,7 +9,7 @@ export default {
 	methods: {
 		login: function() {
 			api.login(this.tel, this.password).then(() => {
-				this.$router.push(this.redirect);
+				this.$router.go(-1);
 			});
 		}
 	}

@@ -20,7 +20,7 @@
 		<div class="barcode" v-show="process===2">
 			<div class="barcode-box" v-show="alipayImage">
 				<img :src="alipayImage" v-show="payment===0" class="code-image">
-				<img :src="wechatImage" v-show="payment===1" class="code-image">
+				<img :src="wechatImage" v-show="payment===1" class="code-image offset">
 			</div>
 			<div class="no-barcode" v-show="!alipayImage">获取二维码图片失败</div>
 			<a class="link-btn" @click="toPayMethodsPage">重新选择支付方式</a>

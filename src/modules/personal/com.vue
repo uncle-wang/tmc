@@ -3,14 +3,16 @@
 		<div class="my-card-wrap">
 			<back :white="true"></back>
 			<div class="my-info-wrap">
-				<div class="my-info-icon signed" v-show="signed"></div>
-				<div class="my-info-name signed" v-show="signed"></div>
-				<div class="my-info-icon unsigned" id="icon_default" v-show="!signed" @click="$root.navigator.toLogin()"></div>
-				<div class="my-info-name unsigned" v-show="!signed"><input id="login_btn" type="button" value="点击登录" @click="$root.navigator.toLogin()"></div>
+				<div class="my-info-icon signed" v-show="$store.state.userInfo.signed">{{$store.state.userInfo.tel | cut}}</div>
+				<div class="my-info-name signed" v-show="$store.state.userInfo.signed">{{$store.state.userInfo.tel}}</div>
+				<div class="my-info-icon" id="icon_default" v-show="!$store.state.userInfo.signed" @click="$root.navigator.toLogin">
+					<i class="iconfont icon-denglu"></i>
+				</div>
+				<div class="my-info-name unsigned" v-show="!$store.state.userInfo.signed"><input id="login_btn" type="button" value="点击登录" @click="$root.navigator.toLogin"></div>
 			</div>
 			<div class="my-pay-wrap">
 				<a class="my-pay-card">
-					<i class="iconfont icon-yue"></i>余额: 0
+					<i class="iconfont icon-yue"></i>余额:{{$store.state.userInfo.balance}}
 				</a>
 				<a class="my-pay-card" @click="$root.navigator.toRecharge">
 					<i class="iconfont icon-chongzhi0101"></i>充值
@@ -57,7 +59,9 @@
 				</a>
 			</li-->
 		</ul>
-		<div class="logout-wrap signed"><input id="logout_btn" class="logout-btn" type="button" value="退出登录"></input></div>
+		<div class="logout-wrap signed" v-show="$store.state.userInfo.signed">
+			<input id="logout_btn" class="logout-btn" type="button" value="退出登录" @click="logout"></input>
+		</div>
 		<div id="pickup_wrap" class="layer">
 			<div class="pickup-box">
 				<div class="pickup-amount">

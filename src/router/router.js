@@ -19,7 +19,6 @@ const router = new VueRouter({
 		{
 			path: '/login',
 			component: modules.login,
-			props: (route) => ({redirect: route.query.redirect})
 		},
 		{
 			path: '/recharge',
