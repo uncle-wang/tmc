@@ -30,6 +30,12 @@ const store = new Vuex.Store({
 			userInfo.alipay = userInfoData.alipay;
 			userInfo.wechat = userInfoData.wechat;
 		},
+		alipay: function(state, alipay) {
+			state.userInfo.alipay = alipay;
+		},
+		wechat: function(state, wechat) {
+			state.userInfo.wechat = wechat;
+		},
 	}
 });
 

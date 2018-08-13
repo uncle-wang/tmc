@@ -39,10 +39,6 @@ export default {
 			store.commit('signed', data.userInfo);
 			return resolve();
 		}
-		// 已登录
-		else if (data.status === 2004) {
-			return resolve();
-		}
 		else {
 			return reject(data);
 		}
@@ -50,11 +46,8 @@ export default {
 	async logout() {
 
 		const {status} = await ajax('logout');
-		if (status === 1000) {
+		if (status === 1000 || status === 1001) {
 			store.commit('unsigned');
-			return resolve();
-		}
-		else if (status === 1001) {
 			return resolve();
 		}
 		else {
@@ -68,5 +61,23 @@ export default {
 			return resolve();
 		}
 		return reject(data);
+	},
+	async setAlipay(alipay, code, realname) {
+
+		const {status} = await ajax('setAlipay', {alipay, code, realname});
+		if (status === 1000) {
+			store.commit('alipay', alipay);
+			return resolve();
+		}
+		return reject(status);
+	},
+	async setWechat(wechat, code, realname) {
+
+		const {status} = await ajax('setWechat', {wechat, code, realname});
+		if (status === 1000) {
+			store.commit('wechat', wechat);
+			return resolve();
+		}
+		return reject(status);
 	},
 };

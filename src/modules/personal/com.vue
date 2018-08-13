@@ -39,17 +39,27 @@
 				</a>
 			</li>
 			<li class="func-item-wrap">
-				<a class="func-item-link" @click="$root.navigator.toPassword">
+				<a class="func-item-link" @click="setPassword">
 					<div class="func-item-title">修改密码</div>
 				</a>
 			</li>
 			<li class="func-item-wrap">
-				<a class="func-item-link" id="alipay_link" @click="$root.navigator.toPayBind('type')">
+				<a class="func-item-link" @click="setAlipay">
 					<div class="func-item-title">
-						支付宝/微信
-						<span class="func-item-text">用于提现收款，点击设置</span>
-						<span class="func-item-text top">已绑定，点击更换</span>
-						<span class="func-item-des"></span>
+						支付宝
+						<span class="func-item-info" v-if="$store.state.userInfo.alipay">
+							{{$store.state.userInfo.alipay}}
+						</span>
+					</div>
+				</a>
+			</li>
+			<li class="func-item-wrap">
+				<a class="func-item-link" @click="setWechat">
+					<div class="func-item-title">
+						微信
+						<span class="func-item-info" v-if="$store.state.userInfo.wechat">
+							{{$store.state.userInfo.wechat}}
+						</span>
 					</div>
 				</a>
 			</li>

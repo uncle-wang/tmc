@@ -42,18 +42,23 @@ export default {
 
 		const regA = /^1\d{10}$/;
 		const regB = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-		return _validator(regA.test(param) || regB.test(param), '请输入正确的支付宝账号');
+		return _validator(regA.test(p) || regB.test(p), '请输入正确的支付宝账号');
 	},
 	// 微信
 	wechat: p => {
 
 		const regA = /^1\d{10}$/;
 		const regB = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-		return _validator(regA.test(param) || regB.test(param), '请输入正确的微信账号');
+		return _validator(regA.test(p) || regB.test(p), '请输入正确的微信账号');
 	},
 	// 提现金额
 	pickupquota: p => {
 
 		return _regTest(p, /^[1-9]\d*$/, '请输入正确的提现金额');
+	},
+	// 真实姓名
+	realname: p => {
+
+		return _hasSet(p, '请输入真实有效的收款人姓名');
 	},
 };
