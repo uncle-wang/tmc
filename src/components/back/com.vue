@@ -1,29 +1,29 @@
 <template>
-	<div class="back-wrap">
-		<a class="back-link" @click="$router.go(-1)">
-			<i class="iconfont icon-web-icon-"></i>
-			{{title}}
-		</a>
-	</div>
+	<a class="back-link" :class="{white: white}" @click="$router.go(-1)">
+		<i class="iconfont icon-fanhui1"></i>
+		{{title}}
+	</a>
 </template>
 <script>
 	export default {
-		props: {title: {default: '返回'}},
+		props: {title: {default: '返回'}, white: {default: false}},
 	};
 </script>
 <style lang="less" scoped>
 	@import './../../base';
-	.back-wrap {
-		color: @baseColor;
-		padding: 8px 6px;
+	.back-link {
+		position: fixed;
+		left: 5px;
+		top: 8px;
 		font-size: 14px;
-		height: 26px;
-		line-height: 19px;
+		color: @baseColor;
+		&.white {
+			color: #fff;
+		}
 	}
 	.iconfont {
-		font-size: 22px;
 		position: relative;
 		right: -4px;
-		top: 2px;
+		top: 1px;
 	}
 </style>

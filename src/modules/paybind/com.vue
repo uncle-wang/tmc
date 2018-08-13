@@ -1,73 +1,27 @@
 <template>
 	<div>
-		<back title="返回个人中心"></back>
+		<back></back>
 		<div class="wrap">
-			<div class="title">绑定{{paymentName}}账号</div>
-			<form autocomplete="false">
-				<div class="line">
-					<div class="input-wrap"><input class="input" type="text" :placeholder="paymentName+'账号'" name="alipay"></div>
-					<div class="input-wrap pend">
-						<input type="text" class="input" name="code" placeholder="短信验证码">
-						<div class="code-wrap">
-							<a id="code_btn" class="code-btn">获取验证码</a>
-							<span class="code-counter">60秒</span>
-						</div>
-					</div>
+			<div class="payment-select" v-show="payment==='type'&&process===0">
+				<p class="title">请选择账号类型</p>
+				<div class="pay-list">
+					<a class="payment" @click="setPayMethod(0)"><i class="iconfont icon-iconfontalipay"></i></a>
+					<a class="payment" @click="setPayMethod(1)"><i class="iconfont icon-wechat"></i></a>
 				</div>
-				<div class="submit-wrap"><input class="button" type="submit" value="确 定"></div>
-			</form>
+			</div>
+			<div class="bind-form" v-show="payment!=='type'||process===1">
+				<div class="title">绑定{{paymentName}}账号</div>
+				<form autocomplete="false" v-on:submit.prevent="bindPayment">
+					<div class="line">
+						<div class="input-wrap"><input class="input" type="text" :placeholder="paymentName+'账号'" name="alipay"></div>
+						<code-input v-model="code"></code-input>
+					</div>
+					<div class="button-wrap"><input class="button" type="submit" value="确 定"></div>
+					<a class="link-btn" @click="process=0">重新选择账号类型</a>
+				</form>
+			</div>
 		</div>
 	</div>
 </template>
 <script src="./com.js"></script>
-<style lang="less" scoped>
-	@import './../../base';
-	.wrap {
-		padding: 0 16px;
-		overflow: hidden;
-	}
-	.title {
-		margin-top: 20%;
-		font-size: 22px;
-		text-align: center;
-	}
-	.line {
-		overflow: hidden;
-	}
-	.input-wrap {
-		border: 1px solid @baseColor;
-		margin-top: 18px;
-		border-radius: 3px;
-		overflow: hidden;
-		padding: 0 12px;
-		&.pend {
-			padding-right: 90px;
-			position: relative;
-		}
-	}
-	.input {
-		height: 36px;
-		display: block;
-		width: 100%;
-		border: none;
-		outline: 0;
-		color: #757575;
-		font-size: 14px;
-	}
-	.code-wrap {
-		right: 2px;
-		position: absolute;
-		top: 6px;
-		font-size: 14px;
-		padding: 2px 0;
-		color: @baseColor;
-		width: 78px;
-		text-align: center;
-	}
-	.code-counter {
-		display: none;
-	}
-	.submit-wrap {
-		margin-top: 20px;
-	}
-</style>
+<style lang="less" scoped src="./com.less"></style>

@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<back title="返回个人中心"></back>
+		<back></back>
 		<div class="quota-select" v-show="process===0">
 			<p class="title">请选择充值金额</p>
 			<ul class="quota-list">
@@ -15,7 +15,7 @@
 				<a class="payment" @click="setPayMethod(0)"><i class="iconfont icon-iconfontalipay"></i></a>
 				<a class="payment" @click="setPayMethod(1)"><i class="iconfont icon-wechat"></i></a>
 			</div>
-			<p class="link" @click="toQuotaPage">重新选择金额</p>
+			<a class="link-btn" @click="toQuotaPage">重新选择金额</a>
 		</div>
 		<div class="barcode" v-show="process===2">
 			<div class="barcode-box" v-show="alipayImage">
@@ -23,7 +23,7 @@
 				<img :src="wechatImage" v-show="payment===1" class="code-image">
 			</div>
 			<div class="no-barcode" v-show="!alipayImage">获取二维码图片失败</div>
-			<p class="link" @click="toPayMethodsPage">重新选择支付方式</p>
+			<a class="link-btn" @click="toPayMethodsPage">重新选择支付方式</a>
 		</div>
 	</div>
 </template>

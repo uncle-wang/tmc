@@ -1,2 +1,3 @@
 import back from './back';
-export {back};
+import codeInput from './codeinput';
+export {back, codeInput};

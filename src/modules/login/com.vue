@@ -30,22 +30,6 @@
 		overflow: hidden;
 		padding: 0 24px;
 	}
-	.input-wrap {
-		margin-top: 48px;
-		border-bottom: 1px solid @baseColor;
-		padding: 0 5px 8px;
-		input {
-			width: 100%;
-			display: block;
-			font-size: 16px;
-			background: none;
-			outline: none;
-			border: none;
-			&::-webkit-input-placeholder {
-				color: #b1b1b1;
-			}
-		}
-	}
 	.func-wrap {
 		margin-top: 24px;
 		text-align: right;

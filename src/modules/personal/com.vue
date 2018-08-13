@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div class="my-card-wrap">
-			<a class="home-link" href="index.html">&lt;&nbsp;返回首页</a>
+			<back :white="true"></back>
 			<div class="my-info-wrap">
 				<div class="my-info-icon signed"></div>
 				<div class="my-info-icon unsigned" id="icon_default"></div>
@@ -42,9 +42,9 @@
 				</a>
 			</li>
 			<li class="func-item-wrap">
-				<a class="func-item-link" id="alipay_link" @click="navigator.toPayBind(0)">
+				<a class="func-item-link" id="alipay_link" @click="navigator.toPayBind('type')">
 					<div class="func-item-title">
-						支付宝
+						支付宝/微信
 						<span class="func-item-text">用于提现收款，点击设置</span>
 						<span class="func-item-text top">已绑定，点击更换</span>
 						<span class="func-item-des"></span>
