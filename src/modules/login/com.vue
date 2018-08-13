@@ -18,14 +18,6 @@
 <script src="./com.js"></script>
 <style lang="less" scoped>
 	@import './../../base';
-	.page-title {
-		font-size: 20px;
-		padding: 0 24px;
-		text-align: center;
-		color: @baseColor;
-		font-family: Arial;
-		margin-top: 12%;
-	}
 	#login_form {
 		overflow: hidden;
 		padding: 0 24px;

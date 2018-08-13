@@ -10,5 +10,7 @@ import paybind from './paybind';
 import personal from './personal';
 // 提现
 import pickup from './pickup';
+// 修改密码
+import password from './password'
 
-export {home, login, recharge, paybind, personal, pickup};
+export {home, login, recharge, paybind, personal, pickup, password};

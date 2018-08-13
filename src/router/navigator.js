@@ -28,4 +28,8 @@ const toPickup = () => {
 	router.push('/pickup');
 };
 
-export default {toRecharge, toLogin, toHome, toPersonal, toPayBind, toPickup};
+const toPassword = () => {
+	router.push('/password');
+};
+
+export default {toRecharge, toLogin, toHome, toPersonal, toPayBind, toPickup, toPassword};

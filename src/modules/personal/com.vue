@@ -3,10 +3,10 @@
 		<div class="my-card-wrap">
 			<back :white="true"></back>
 			<div class="my-info-wrap">
-				<div class="my-info-icon signed"></div>
-				<div class="my-info-icon unsigned" id="icon_default"></div>
-				<div class="my-info-name signed"></div>
-				<div class="my-info-name unsigned"><input id="login_btn" type="button" value="点击登录"></div>
+				<div class="my-info-icon signed" v-show="signed"></div>
+				<div class="my-info-name signed" v-show="signed"></div>
+				<div class="my-info-icon unsigned" id="icon_default" v-show="!signed" @click="$root.navigator.toLogin()"></div>
+				<div class="my-info-name unsigned" v-show="!signed"><input id="login_btn" type="button" value="点击登录" @click="$root.navigator.toLogin()"></div>
 			</div>
 			<div class="my-pay-wrap">
 				<a class="my-pay-card">
@@ -37,7 +37,7 @@
 				</a>
 			</li>
 			<li class="func-item-wrap">
-				<a class="func-item-link" href="password.html">
+				<a class="func-item-link" @click="$root.navigator.toPassword">
 					<div class="func-item-title">修改密码</div>
 				</a>
 			</li>

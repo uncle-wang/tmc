@@ -2,7 +2,7 @@
 	<div>
 		<back></back>
 		<div class="quota-select" v-show="process===0">
-			<p class="title">请选择充值金额</p>
+			<p class="page-title">请选择充值金额</p>
 			<ul class="quota-list">
 				<li class="quota-item" v-for="quota in quotaList" @click="setQuota(quota)">
 					<span class="quota">{{quota | currency}}</span>
@@ -10,7 +10,7 @@
 			</ul>
 		</div>
 		<div class="payment-select" v-show="process===1">
-			<p class="title">请选择支付方式</p>
+			<p class="page-title">请选择支付方式</p>
 			<div class="pay-list">
 				<a class="payment" @click="setPayMethod(0)"><i class="iconfont icon-iconfontalipay"></i></a>
 				<a class="payment" @click="setPayMethod(1)"><i class="iconfont icon-wechat"></i></a>

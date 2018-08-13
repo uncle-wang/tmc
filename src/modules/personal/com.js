@@ -1,5 +1,7 @@
 export default {
 	data: function() {
-		return {};
+		return {
+			signed: false
+		};
 	}
 };

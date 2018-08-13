@@ -3,14 +3,14 @@
 		<back></back>
 		<div class="wrap">
 			<div class="payment-select" v-show="payment==='type'&&process===0">
-				<p class="title">请选择账号类型</p>
+				<p class="page-title">请选择账号类型</p>
 				<div class="pay-list">
 					<a class="payment" @click="setPayMethod(0)"><i class="iconfont icon-iconfontalipay"></i></a>
 					<a class="payment" @click="setPayMethod(1)"><i class="iconfont icon-wechat"></i></a>
 				</div>
 			</div>
 			<div class="bind-form" v-show="payment!=='type'||process===1">
-				<div class="title">绑定{{paymentName}}账号</div>
+				<div class="page-title">绑定{{paymentName}}账号</div>
 				<form autocomplete="false" v-on:submit.prevent="bindPayment">
 					<div class="line">
 						<div class="input-wrap"><input type="text" :placeholder="paymentName+'账号'"></div>

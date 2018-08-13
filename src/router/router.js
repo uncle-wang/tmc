@@ -38,6 +38,10 @@ const router = new VueRouter({
 			path: '/pickup',
 			component: modules.pickup
 		},
+		{
+			path: '/password',
+			component: modules.password
+		},
 	]
 });
 

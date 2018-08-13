@@ -2,7 +2,7 @@
 	<div class="wrap">
 		<back></back>
 		<form @submit.prevent="pickup">
-			<p class="title">请输入提现金额</p>
+			<p class="page-title">请输入提现金额</p>
 			<div class="row">
 				<input class="quota-input" type="number" v-model.number="quota">
 				<a class="link-btn inline">全部提现</a>
@@ -24,15 +24,6 @@
 <script src="./com.js"></script>
 <style lang="less" scoped>
 	@import './../../base';
-	.wrap {
-		padding: 0 16px;
-		overflow: hidden;
-	}
-	.title {
-		margin-top: 16%;
-		font-size: 22px;
-		text-align: center;
-	}
 	.row {
 		margin-top: 20px;
 		text-align: center;
