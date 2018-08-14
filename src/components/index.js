@@ -1,3 +1,4 @@
 import back from './back';
 import codeInput from './codeinput';
-export {back, codeInput};
+import btn from './btn';
+export {back, codeInput, btn};

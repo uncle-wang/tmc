@@ -2,11 +2,7 @@
 	<div>
 		<header>
 			<div class="game-num">0期</div>
-			<div class="header-right">
-				<a class="header-btn" @click="$root.navigator.toPersonal()" v-show="$root.signed">
-					<i class="iconfont icon-denglu1"></i>
-				</a>
-			</div>
+			<a class="header-right" @click="toPersonal"><i class="iconfont icon-denglu1"></i></a>
 		</header>
 		<div class="game-box-wrap">
 			<div class="game-box odd">
@@ -35,8 +31,7 @@
 		<div class="pending" id="close_time"></div>
 		<div class="pending" id="next_time">下期游戏马上开始，敬请期待</div>
 		<div class="btn-wrap">
-			<a class="game-btn" id="recharge" @click="$root.navigator.toRecharge">我要充值</a>
-			<a class="game-btn" @click="$root.navigator.toPersonal">个人中心</a>
+			<a class="game-btn" id="recharge" @click="toRecharge">我要充值</a>
 		</div>
 		<div class="history-wrap"><a class="history-link" href="games.html">查看往期</a></div>
 		<div class="info-wrap">
