@@ -36,6 +36,9 @@ const store = new Vuex.Store({
 		wechat: function(state, wechat) {
 			state.userInfo.wechat = wechat;
 		},
+		balance: function(state, balance) {
+			state.userInfo.balance = balance;
+		},
 	}
 });
 

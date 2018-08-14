@@ -80,11 +80,23 @@ export default {
 		}
 		return reject(status);
 	},
-	async pickup(quota) {
+	async pickup(quota, type) {
 
-		const data = await ajax('pickup', {quota, type: '0'});
+		const data = await ajax('pickup', {quota, type});
 		if (data.status === 1000) {
-			return resolve(data.balance);
+			store.commit('balance', data.balance);
+			return resolve();
+		}
+		else {
+			return reject(data.status);
+		}
+	},
+	async pickupall(type) {
+
+		const data = await ajax('pickupall', {type});
+		if (data.status === 1000) {
+			store.commit('balance', data.balance);
+			return resolve();
 		}
 		else {
 			return reject(data.status);
