@@ -5,23 +5,35 @@
 	margin-top: 30%;
 }
 .quota-list {
-	width: 320px;
-	margin: 32px auto 0;
+	width: 318px;
+	margin: 16px auto 0;
 	list-style-type: none;
 	overflow: hidden;
 }
 .quota-item {
 	float: left;
-	width: 70px;
-	height: 48px;
-	margin: 12px 5px;
-	background-color: @baseColor;
+	width: 94px;
+	margin: 8px 5px;
 	border-radius: 3px;
-	color: #fff;
-	font-size: 16px;
+	color: @baseColor;
 	text-align: center;
-	line-height: 48px;
-	box-shadow: 0px 0px 1px 0px #2e5371;
+	border: 1px solid @baseColor;
+	padding: 8px 0;
+	&.major {
+		color: #ff0000;
+		border: 1px solid #ff0000;
+		.price {
+			color: #ff8686;
+		}
+	}
+}
+.quota {
+	font-size: 16px;
+}
+.price {
+	margin-top: 2px;
+	font-size: 13px;
+	color: #7fbfb9;
 }
 .pay-list {
 	overflow: hidden;
@@ -60,7 +72,7 @@
 	}
 }
 .no-barcode {
-	margin: 0 20px;
+	margin: 36px 20px 0;
 	height: 420px;
 	line-height: 420px;
 	text-align: center;

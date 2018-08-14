@@ -19,8 +19,9 @@ export default {
 			}
 			return -- max;
 		},
-		confirm: function(quota, fee, callback) {
-			const info = '提现金额:' + quota + ',预计手续费:' + fee + ',请确认';
+		confirm: function(quota, fee, payment, callback) {
+			const account = payment === '0' ? this.$root.alipay : this.$root.wechat;
+			const info = '提现金额：' + quota + '，收款账号：' + account + '，预计手续费：' + fee + '，确认？';
 			if (window.confirm(info)) {
 				callback();
 			}
@@ -46,7 +47,7 @@ export default {
 		},
 		pickup: function(payment) {
 			const {quota, fee} = this;
-			this.confirm(quota, fee, () => {
+			this.confirm(quota, fee, payment, () => {
 				api.pickup(quota, payment).then(this.success).catch(this.error);
 			});
 		},
@@ -54,7 +55,7 @@ export default {
 			const balance = this.$root.balance;
 			const quota = this.getMaxPickupValue(balance);
 			const fee = Math.ceil(quota * percent / 100);
-			this.confirm(quota, fee, () => {
+			this.confirm(quota, fee, payment, () => {
 				api.pickupall(payment).then(this.success).catch(this.error);
 			});
 		},

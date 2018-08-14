@@ -3,8 +3,9 @@
 		<header>
 			<div class="game-num">0期</div>
 			<div class="header-right">
-				<a class="header-btn" @click="$root.navigator.toLogin()" v-show="!$root.signed">登 录</a>
-				<a class="header-btn" @click="$root.navigator.toPersonal" v-show="$root.signed">{{$root.tel}}</a>
+				<a class="header-btn" @click="$root.navigator.toPersonal()" v-show="$root.signed">
+					<i class="iconfont icon-denglu1"></i>
+				</a>
 			</div>
 		</header>
 		<div class="game-box-wrap">

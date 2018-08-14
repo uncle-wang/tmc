@@ -18,7 +18,7 @@ const store = new Vuex.Store({
 			const userInfo = state.userInfo;
 			userInfo.signed = false;
 			userInfo.tel = null;
-			userInfo.balance = null;
+			userInfo.balance = 0;
 			userInfo.alipay = null;
 			userInfo.wechat = null;
 		},

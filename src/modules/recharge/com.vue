@@ -4,8 +4,9 @@
 		<div class="quota-select" v-show="process===0">
 			<p class="page-title">请选择充值金额</p>
 			<ul class="quota-list">
-				<li class="quota-item" v-for="quota in quotaList" @click="setQuota(quota)">
-					<span class="quota">{{quota | currency}}</span>
+				<li class="quota-item" :class="{major: quota>1000}" v-for="quota in quotaList" @click="setQuota(quota)">
+					<div class="quota">{{quota | currency}}豆</div>
+					<div class="price">售价:{{quota | currency}}元</div>
 				</li>
 			</ul>
 		</div>

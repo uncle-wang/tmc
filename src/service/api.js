@@ -10,6 +10,7 @@ const ajax = (api, params) => {
 		baseURL: '/',
 		data: params,
 		url: api,
+		timeout: 8000,
 	}).then(res => {
 		if (res.status === 200) {
 			return resolve(res.data);

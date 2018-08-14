@@ -35,7 +35,7 @@
 				全部提现
 			</button>
 		</div>
-		<p class="info-text center" v-show="!$root.alipay&&!$root.wechat">请先<a class="btn" @click="$root.navigator.toPayBind('type')">绑定支付宝或微信作为收款账号</a></p>
+		<p class="info-text center" v-show="!$root.alipay&&!$root.wechat">请先<a class="btn" @click="$root.navigator.toPayBind('type')">绑定支付宝或微信</a>作为收款账号</p>
 		<div class="info">
 			<p class="info-text">1、提现数额必须为整数，且<span class="markup">单笔提现数额不能少于100</span>(余豆不足100请参考第2条说明)</p>
 			<p class="info-text">2、当您的账户<span class="markup">余豆数量不足100时，您可以使用全部提现功能</span>(此种情况下您仅能进行全部提现操作)</p>
