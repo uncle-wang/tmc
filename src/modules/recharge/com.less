@@ -1,8 +1,6 @@
 @import './../../base';
 .page-title {
-	font-size: 24px;
-	text-align: center;
-	margin-top: 30%;
+	margin-top: 80px;
 }
 .quota-list {
 	width: 318px;
@@ -19,11 +17,11 @@
 	text-align: center;
 	border: 1px solid @baseColor;
 	padding: 8px 0;
-	&.major {
-		color: #ff0000;
+	&.selected {
 		border: 1px solid #ff0000;
+		color: #ff0000;
 		.price {
-			color: #ff8686;
+			color: #ff7070;
 		}
 	}
 }
@@ -34,29 +32,6 @@
 	margin-top: 2px;
 	font-size: 13px;
 	color: #7fbfb9;
-}
-.pay-list {
-	overflow: hidden;
-}
-.payment {
-	display: block;
-	margin: 20px auto 0;
-	text-align: center;
-	height: 72px;
-	width: 72px;
-	line-height: 72px;
-}
-.iconfont {
-	font-size: 64px;
-	&.little {
-		font-size: 32px;
-	}
-	&.icon-iconfontalipay {
-		color: @alipay;
-	}
-	&.icon-wechat {
-		color: @wechat;
-	}
 }
 .barcode {
 	text-align: center;
@@ -71,11 +46,17 @@
 		margin-top: 36px;
 	}
 }
+.info {
+	margin-top: 36px;
+}
 .no-barcode {
-	margin: 36px 20px 0;
+	margin: 24px 20px 0;
 	height: 420px;
 	line-height: 420px;
 	text-align: center;
 	color: #989898;
 	background-color: #ececec;
+}
+.btn {
+	width: 152px;
 }

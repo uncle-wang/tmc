@@ -59,7 +59,6 @@ body {
 	line-height: 48px;
 	text-align: center;
 	text-decoration: none;
-	outline: none;
 	&.outline {
 		height: 46px;
 		border: 1px solid @baseColor;
@@ -72,6 +71,37 @@ body {
 	}
 	&[disabled] {
 		background: #ccc;
+	}
+}
+.btn {
+	border: none;
+	outline: none;
+	width: 140px;
+	height: 40px;
+	line-height: 40px;
+	border-radius: 5px;
+	margin: 24px auto 0;
+	display: block;
+	font-size: 18px;
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
+	background: @baseColor;
+	&.alipay {
+		background: #13aeec;
+	}
+	&.wechat {
+		background: #00af41;
+	}
+	&[disabled] {
+		background: #ccc;
+	}
+	& + .btn {
+		margin-top: 12px;
+	}
+	.iconfont {
+		font-size: 20px;
+		margin-right: 2px;
 	}
 }
 .link-btn {

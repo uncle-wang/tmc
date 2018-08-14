@@ -13,11 +13,11 @@
 				<input class="quota-input" type="number" v-model.number="quota" autofocus>
 				<a class="link-btn inline" @click="tab=1">全部提现</a>
 			</div>
-			<button class="button alipay" :disabled="!canPickup" @click="pickup('0')" v-if="$root.alipay">
+			<button class="btn alipay" :disabled="!canPickup" @click="pickup('0')" v-if="$root.alipay">
 				<i class="iconfont icon-iconfontalipay"></i>
 				确认提现
 			</button>
-			<button class="button wechat" :disabled="!canPickup" @click="pickup('1')" v-if="$root.wechat">
+			<button class="btn wechat" :disabled="!canPickup" @click="pickup('1')" v-if="$root.wechat">
 				<i class="iconfont icon-wechat"></i>
 				确认提现
 			</button>
@@ -26,16 +26,16 @@
 			<p class="info-text center" v-show="canPickupall&&$root.balance<102">最大可提现金额不足100，请使用全部提现功能</p>
 			<p class="info-text center" v-show="canPickupall&&$root.balance>=102">您正在使用全部提现功能</p>
 			<p class="info-text center" v-show="!canPickupall">当前余额不足，无法提现</p>
-			<button class="button alipay" :disabled="!canPickupall" @click="pickupall('0')" v-if="$root.alipay">
+			<button class="btn alipay" :disabled="!canPickupall" @click="pickupall('0')" v-if="$root.alipay">
 				<i class="iconfont icon-iconfontalipay"></i>
 				全部提现
 			</button>
-			<button class="button wechat" :disabled="!canPickupall" @click="pickupall('1')" v-if="$root.wechat">
+			<button class="btn wechat" :disabled="!canPickupall" @click="pickupall('1')" v-if="$root.wechat">
 				<i class="iconfont icon-wechat"></i>
 				全部提现
 			</button>
 		</div>
-		<p class="info-text center" v-show="!$root.alipay&&!$root.wechat">请先<a class="btn" @click="$root.navigator.toPayBind('type')">绑定支付宝或微信</a>作为收款账号</p>
+		<p class="info-text center" v-show="!$root.alipay&&!$root.wechat">请先<a class="text-btn" @click="$root.navigator.toPayBind('type')">绑定支付宝或微信</a>作为收款账号</p>
 		<div class="info">
 			<p class="info-text">1、提现数额必须为整数，且<span class="markup">单笔提现数额不能少于100</span>(余豆不足100请参考第2条说明)</p>
 			<p class="info-text">2、当您的账户<span class="markup">余豆数量不足100时，您可以使用全部提现功能</span>(此种情况下您仅能进行全部提现操作)</p>
@@ -79,32 +79,7 @@
 		text-align: center;
 		margin-top: 16px;
 	}
-	.button {
-		width: 140px;
-		height: 40px;
-		line-height: 40px;
-		border-radius: 5px;
-		margin: 24px auto 0;
-		&.alipay {
-			background: @alipay;
-		}
-		&.wechat {
-			background: @wechat;
-		}
-		&[disabled] {
-			background: #ccc;
-		}
-		& + .button {
-			margin-top: 12px;
-		}
-		.iconfont {
-			font-size: 20px;
-			margin-right: 2px;
-			position: relative;
-			top: 1px;
-		}
-	}
-	.btn {
+	.text-btn {
 		color: @baseColor;
 		font-size: 14px;
 	}
