@@ -25,7 +25,7 @@ body {
 	text-align: center;
 	color: @baseColor;
 	font-family: Arial;
-	margin-top: 12%;
+	margin-top: 48px;
 }
 
 .input-wrap {
@@ -65,6 +65,13 @@ body {
 		border: 1px solid @baseColor;
 		background: #fff;
 		color: @baseColor;
+		&[disabled] {
+			border: 1px solid #ccc;
+			color: #ccc;
+		}
+	}
+	&[disabled] {
+		background: #ccc;
 	}
 }
 .link-btn {

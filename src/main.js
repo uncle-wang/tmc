@@ -20,9 +20,25 @@ const app = new Vue({
 
 	el: '#app',
 	router,
-	store,
 	data: {
-		navigator
+		navigator,
+	},
+	computed: {
+		signed: function() {
+			return store.state.userInfo.signed;
+		},
+		balance: function() {
+			return store.state.userInfo.balance;
+		},
+		tel: function() {
+			return store.state.userInfo.tel;
+		},
+		alipay: function() {
+			return store.state.userInfo.alipay;
+		},
+		wechat: function() {
+			return store.state.userInfo.wechat;
+		},
 	},
 	beforeMount: function() {
 		// 获取登录信息

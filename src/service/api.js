@@ -80,4 +80,14 @@ export default {
 		}
 		return reject(status);
 	},
+	async pickup(quota) {
+
+		const data = await ajax('pickup', {quota, type: '0'});
+		if (data.status === 1000) {
+			return resolve(data.balance);
+		}
+		else {
+			return reject(data.status);
+		}
+	},
 };

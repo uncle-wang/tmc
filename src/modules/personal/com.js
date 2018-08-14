@@ -9,7 +9,7 @@ export default {
 			api.logout();
 		},
 		checkSigned: function() {
-			if (this.$store.state.userInfo.signed) {
+			if (this.$root.signed) {
 				return true;
 			}
 			this.$root.navigator.toLogin();
@@ -28,6 +28,11 @@ export default {
 		setWechat: function() {
 			if (this.checkSigned()) {
 				this.$root.navigator.toPayBind('1');
+			}
+		},
+		toPickup: function() {
+			if (this.checkSigned()) {
+				this.$root.navigator.toPickup();
 			}
 		},
 	},

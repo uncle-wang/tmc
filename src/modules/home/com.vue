@@ -3,8 +3,8 @@
 		<header>
 			<div class="game-num">0期</div>
 			<div class="header-right">
-				<a class="header-btn" @click="$root.navigator.toLogin()" v-show="!$store.state.userInfo.signed">登 录</a>
-				<a class="header-btn" @click="$root.navigator.toPersonal" v-show="$store.state.userInfo.signed">{{$store.state.userInfo.tel}}</a>
+				<a class="header-btn" @click="$root.navigator.toLogin()" v-show="!$root.signed">登 录</a>
+				<a class="header-btn" @click="$root.navigator.toPersonal" v-show="$root.signed">{{$root.tel}}</a>
 			</div>
 		</header>
 		<div class="game-box-wrap">

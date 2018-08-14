@@ -3,21 +3,21 @@
 		<div class="my-card-wrap">
 			<back :white="true"></back>
 			<div class="my-info-wrap">
-				<div class="my-info-icon signed" v-show="$store.state.userInfo.signed">{{$store.state.userInfo.tel | cut}}</div>
-				<div class="my-info-name signed" v-show="$store.state.userInfo.signed">{{$store.state.userInfo.tel}}</div>
-				<div class="my-info-icon" id="icon_default" v-show="!$store.state.userInfo.signed" @click="$root.navigator.toLogin">
+				<div class="my-info-icon signed" v-show="$root.signed">{{$root.tel | cut}}</div>
+				<div class="my-info-name signed" v-show="$root.signed">{{$root.tel}}</div>
+				<div class="my-info-icon" id="icon_default" v-show="!$root.signed" @click="$root.navigator.toLogin">
 					<i class="iconfont icon-denglu"></i>
 				</div>
-				<div class="my-info-name unsigned" v-show="!$store.state.userInfo.signed"><input id="login_btn" type="button" value="点击登录" @click="$root.navigator.toLogin"></div>
+				<div class="my-info-name unsigned" v-show="!$root.signed"><input id="login_btn" type="button" value="点击登录" @click="$root.navigator.toLogin"></div>
 			</div>
 			<div class="my-pay-wrap">
 				<a class="my-pay-card">
-					<i class="iconfont icon-yue"></i>余额:{{$store.state.userInfo.balance}}
+					<i class="iconfont icon-yue"></i>余额:{{$root.balance}}
 				</a>
 				<a class="my-pay-card" @click="$root.navigator.toRecharge">
 					<i class="iconfont icon-chongzhi0101"></i>充值
 				</a>
-				<a class="my-pay-card" @click="$root.navigator.toPickup">
+				<a class="my-pay-card" @click="toPickup">
 					<i class="iconfont icon-tixian1"></i>提现
 				</a>
 			</div>
@@ -47,8 +47,8 @@
 				<a class="func-item-link" @click="setAlipay">
 					<div class="func-item-title">
 						支付宝
-						<span class="func-item-info" v-if="$store.state.userInfo.alipay">
-							{{$store.state.userInfo.alipay}}
+						<span class="func-item-info" v-if="$root.alipay">
+							{{$root.alipay}}
 						</span>
 					</div>
 				</a>
@@ -57,8 +57,8 @@
 				<a class="func-item-link" @click="setWechat">
 					<div class="func-item-title">
 						微信
-						<span class="func-item-info" v-if="$store.state.userInfo.wechat">
-							{{$store.state.userInfo.wechat}}
+						<span class="func-item-info" v-if="$root.wechat">
+							{{$root.wechat}}
 						</span>
 					</div>
 				</a>
@@ -69,7 +69,7 @@
 				</a>
 			</li-->
 		</ul>
-		<div class="logout-wrap signed" v-show="$store.state.userInfo.signed">
+		<div class="logout-wrap signed" v-show="$root.signed">
 			<input id="logout_btn" class="logout-btn" type="button" value="退出登录" @click="logout"></input>
 		</div>
 		<div id="pickup_wrap" class="layer">

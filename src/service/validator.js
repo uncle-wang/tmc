@@ -5,7 +5,9 @@ const _validator = (bool, desc) => {
 		return true;
 	}
 	else {
-		alert(desc);
+		if (desc) {
+			alert(desc);
+		}
 		return false;
 	}
 };
@@ -54,7 +56,7 @@ export default {
 	// 提现金额
 	pickupquota: p => {
 
-		return _regTest(p, /^[1-9]\d*$/, '请输入正确的提现金额');
+		return _regTest(p, /^[1-9]\d{2,}$/);
 	},
 	// 真实姓名
 	realname: p => {

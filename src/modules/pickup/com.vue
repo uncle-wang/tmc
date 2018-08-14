@@ -1,13 +1,39 @@
 <template>
 	<div class="wrap">
 		<back></back>
-		<form @submit.prevent="pickup">
-			<p class="page-title">请输入提现金额</p>
+		<p class="page-title">当前账户余额</p>
+		<p class="balance"><span class="balance-num">
+			{{$root.balance}}</span>豆
+			<a class="link-btn inline" @click="tab=0" v-show="$root.balance>=102&&tab===1">指定金额</a>
+		</p>
+		<form @submit.prevent="pickup" v-show="$root.balance>=102&&tab===0">
+			<p class="info-text center" v-show="!this.quota">请输入提现金额</p>
+			<p class="info-text center" v-show="this.quota">预计手续费{{fee}}元</p>
 			<div class="row">
-				<input class="quota-input" type="number" v-model.number="quota">
-				<a class="link-btn inline">全部提现</a>
+				<input class="quota-input" type="number" v-model.number="quota" autofocus>
+				<a class="link-btn inline" @click="tab=1">全部提现</a>
 			</div>
-			<input class="button" type="submit" value="确认提现">
+			<button class="button alipay" type="submit" :disabled="!canPickup">
+				<i class="iconfont icon-iconfontalipay"></i>
+				确认提现
+			</button>
+			<button class="button wechat" type="submit" :disabled="!canPickup">
+				<i class="iconfont icon-wechat"></i>
+				确认提现
+			</button>
+		</form>
+		<form @submit.prevent="pickupall" v-show="$root.balance<102||tab===1">
+			<p class="info-text center" v-show="canPickupall&&$root.balance<102">最大可提现金额不足100，请使用全部提现功能</p>
+			<p class="info-text center" v-show="canPickupall&&$root.balance>=102">您正在使用全部提现功能</p>
+			<p class="info-text center" v-show="!canPickupall">当前余额不足，无法提现</p>
+			<button class="button alipay" type="submit" :disabled="!canPickupall">
+				<i class="iconfont icon-iconfontalipay"></i>
+				全部提现
+			</button>
+			<button class="button wechat" type="submit" :disabled="!canPickupall">
+				<i class="iconfont icon-wechat"></i>
+				全部提现
+			</button>
 		</form>
 		<div class="info">
 			<p class="info-text">1、提现数额必须为整数，且<span class="markup">单笔提现数额不能少于100</span>(余豆不足100请参考第2条说明)</p>
@@ -39,12 +65,41 @@
 		text-align: center;
 		color: @baseColor;
 	}
+	.balance {
+		text-align: center;
+		margin-top: 16px;
+	}
+	.balance-num {
+		font-size: 26px;
+		color: #ffa500;
+		margin-right: 4px;
+	}
+	.info-text.center {
+		text-align: center;
+		margin-top: 16px;
+	}
 	.button {
 		width: 160px;
 		height: 40px;
 		line-height: 40px;
 		border-radius: 5px;
 		margin: 24px auto 0;
+		&.alipay {
+			background: @alipay;
+		}
+		&.wechat {
+			background: @wechat;
+			margin-top: 12px;
+		}
+		&[disabled] {
+			background: #ccc;
+		}
+		.iconfont {
+			font-size: 20px;
+			margin-right: 2px;
+			position: relative;
+			top: 1px;
+		}
 	}
 	.info {
 		margin-top: 32px;
