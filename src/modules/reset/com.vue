@@ -3,7 +3,7 @@
 		<div class="page-title">重置密码</div>
 		<form autocomplete="false" @submit.prevent="reset">
 			<div class="input-wrap"><input type="text" v-model="tel" placeholder="输入手机号"></div>
-			<code-input v-model="code"></code-input>
+			<code-input type="1" v-model="code" :tel="tel"></code-input>
 			<div class="input-wrap"><input type="password" placeholder="输入新密码" v-model="password"></div>
 			<div class="input-wrap"><input type="password" placeholder="确认新密码" v-model="password2"></div>
 			<div class="button-wrap"><input class="button" type="submit" value="确 定"></div>

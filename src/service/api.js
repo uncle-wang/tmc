@@ -129,4 +129,28 @@ export default {
 		}
 		return reject(status);
 	},
+	async sendSmscode(type, tel) {
+
+		let api;
+		if (type === '0') {
+			api = 'sendRegisterCode';
+		}
+		else if (type === '1') {
+			api = 'sendResetCode';
+		}
+		else if (type === '2') {
+			api = 'sendAlipayCode';
+		}
+		else if (type === '3') {
+			api = 'sendWechatCode';
+		}
+		else {
+			return reject(8003);
+		}
+		const {status} = await ajax(api, {tel});
+		if (status === 1000) {
+			return;
+		}
+		return reject(status);
+	},
 };
