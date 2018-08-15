@@ -58,7 +58,7 @@
 					else if (status === 2002) {
 						alert('手机号不存在');
 					}
-					else if (status === 8002) {
+					else if (status === 7001 || status === 7002 || status === 8002) {
 						alert('验证码申请过于频繁，请稍后再试');
 					}
 					else {

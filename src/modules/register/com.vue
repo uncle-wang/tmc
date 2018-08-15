@@ -3,7 +3,7 @@
 		<div class="page-title">快速注册</div>
 		<form autocomplete="false" @submit.prevent="register">
 			<div class="input-wrap"><input type="text" v-model="tel" placeholder="输入手机号"></div>
-			<code-input v-model="code"></code-input>
+			<code-input type="0" :tel="tel" v-model="code"></code-input>
 			<div class="input-wrap"><input type="password" placeholder="请输入密码" v-model="password"></div>
 			<div class="input-wrap"><input type="password" placeholder="请确认密码" v-model="password2"></div>
 			<div class="button-wrap"><input class="button" type="submit" value="确 定"></div>

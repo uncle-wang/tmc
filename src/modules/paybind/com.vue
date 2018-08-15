@@ -15,7 +15,7 @@
 					<div class="line">
 						<div class="input-wrap"><input type="text" v-model="alipay.alipay" placeholder="支付宝账号"></div>
 						<div class="input-wrap"><input type="text" v-model="alipay.realname" placeholder="收款人真实姓名"></div>
-						<code-input v-model="alipay.smscode"></code-input>
+						<code-input type="2" :tel="$root.tel" v-model="alipay.smscode"></code-input>
 					</div>
 					<div class="button-wrap"><input class="button" type="submit" value="确 定"></div>
 				</form>
@@ -23,7 +23,7 @@
 					<div class="line">
 						<div class="input-wrap"><input type="text" v-model="wechat.wechat" placeholder="微信账号"></div>
 						<div class="input-wrap"><input type="text" v-model="wechat.realname" placeholder="收款人真实姓名"></div>
-						<code-input v-model="wechat.smscode"></code-input>
+						<code-input type="3" :tel="$root.tel" v-model="wechat.smscode"></code-input>
 					</div>
 					<div class="button-wrap"><input class="button" type="submit" value="确 定"></div>
 				</form>
