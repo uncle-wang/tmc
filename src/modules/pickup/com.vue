@@ -13,23 +13,27 @@
 				<input class="quota-input" type="number" v-model.number="quota" autofocus>
 				<a class="link-btn inline" @click="tab=1">全部提现</a>
 			</div>
-			<btn class="alipay" text="确认提现" :loading="loading" :disabled="!canPickup" @click="pickup('0')" v-if="$root.alipay">
+			<button class="btn alipay" :disabled="!canPickup" @click="pickup('0')" v-if="$root.alipay">
 				<i class="iconfont icon-iconfontalipay"></i>
-			</btn>
-			<btn class="wechat" text="确认提现" :loading="loading" :disabled="!canPickup" @click="pickup('1')" v-if="$root.wechat">
+				确认提现
+			</button>
+			<button class="btn wechat" :disabled="!canPickup" @click="pickup('1')" v-if="$root.wechat">
 				<i class="iconfont icon-wechat"></i>
-			</btn>
+				确认提现
+			</button>
 		</div>
 		<div v-show="$root.balance<102||tab===1">
 			<p class="info-text center" v-show="canPickupall&&$root.balance<102">最大可提现金额不足100，请使用全部提现功能</p>
 			<p class="info-text center" v-show="canPickupall&&$root.balance>=102">您正在使用全部提现功能</p>
 			<p class="info-text center" v-show="!canPickupall">当前余额不足，无法提现</p>
-			<btn class="alipay" text="全部提现" :loading="loading" :disabled="!canPickupall" @click="pickupall('0')" v-if="$root.alipay">
+			<button class="btn alipay" :disabled="!canPickupall" @click="pickupall('0')" v-if="$root.alipay">
 				<i class="iconfont icon-iconfontalipay"></i>
-			</btn>
-			<btn class="wechat" text="全部提现" :loading="loading" :disabled="!canPickupall" @click="pickupall('1')" v-if="$root.wechat">
+				全部提现
+			</button>
+			<button class="btn wechat" :disabled="!canPickupall" @click="pickupall('1')" v-if="$root.wechat">
 				<i class="iconfont icon-wechat"></i>
-			</btn>
+				全部提现
+			</button>
 		</div>
 		<p class="info-text center" v-show="!$root.alipay&&!$root.wechat">请先<a class="text-btn" @click="$root.navigator.toPayBind('type')">绑定支付宝或微信</a>作为收款账号</p>
 		<div class="info">

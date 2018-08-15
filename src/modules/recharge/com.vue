@@ -9,12 +9,14 @@
 					<div class="price">售价:{{item | currency}}元</div>
 				</li>
 			</ul>
-			<btn class="alipay" :disabled="!quota" :text="quota?'支付'+quota+'元':'请选择金额'" @click="setPayMethod(0)">
+			<button class="btn alipay" :disabled="!quota" @click="setPayMethod(0)">
 				<i class="iconfont icon-iconfontalipay"></i>
-			</btn>
-			<btn class="wechat" :disabled="!quota" :text="quota?'支付'+quota+'元':'请选择金额'" @click="setPayMethod(1)">
+				{{quota?'支付'+quota+'元':'请选择金额'}}
+			</button>
+			<button class="btn wechat" :disabled="!quota" @click="setPayMethod(1)">
 				<i class="iconfont icon-wechat"></i>
-			</btn>
+				{{quota?'支付'+quota+'元':'请选择金额'}}
+			</button>
 		</div>
 		<div class="barcode" v-show="process===1">
 			<div class="info">
@@ -29,7 +31,7 @@
 			</div>
 			<div class="no-barcode" v-show="!alipayImage">获取二维码图片失败</div>
 			<a class="link-btn" @click="process=0">返回上一步</a>
-			<btn :class="{alipay: payment === 0, wechat: payment === 1}" text="完成支付"></btn>
+			<button class="btn" :class="{alipay: payment === 0, wechat: payment === 1}">完成支付</button>
 		</div>
 	</div>
 </template>

@@ -8,7 +8,6 @@ export default {
 		return {
 			quota: null,
 			tab: 0,
-			loading: false
 		};
 	},
 	methods: {
@@ -28,12 +27,10 @@ export default {
 			}
 		},
 		success: function() {
-			this.loading = false;
 			alert('操作成功，系统将会在一个工作日内处理您的提现请求');
 			this.$router.go(-1);
 		},
 		error: function(status) {
-			this.loading = false;
 			if (status === 1001) {
 				alert('您的登录已超时，请重新登录后再次尝试');
 				this.$root.navigator.toLogin();
@@ -51,11 +48,7 @@ export default {
 		pickup: function(payment) {
 			const {quota, fee} = this;
 			this.confirm(quota, fee, payment, () => {
-				this.loading = true;
-				api.pickup(quota, payment)
-				.then(this.success)
-				.catch(this.error)
-				.finally(() => {this.loading = false});
+				api.pickup(quota, payment).then(this.success).catch(this.error);
 			});
 		},
 		pickupall: function(payment) {
@@ -63,11 +56,7 @@ export default {
 			const quota = this.getMaxPickupValue(balance);
 			const fee = Math.ceil(quota * percent / 100);
 			this.confirm(quota, fee, payment, () => {
-				this.loading = true;
-				api.pickupall(payment)
-				.then(this.success)
-				.catch(this.error)
-				.finally(() => {this.loading = false});
+				api.pickupall(payment).then(this.success).catch(this.error);
 			});
 		},
 	},
