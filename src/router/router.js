@@ -45,6 +45,10 @@ const router = new VueRouter({
 			path: '/register',
 			component: modules.register
 		},
+		{
+			path: '/reset',
+			component: modules.reset
+		},
 	]
 });
 

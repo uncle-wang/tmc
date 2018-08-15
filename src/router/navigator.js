@@ -32,4 +32,8 @@ const toRegister = () => {
 	router.push('/register');
 };
 
-export default {toRecharge, toLogin, toHome, toPersonal, toPayBind, toPickup, toPassword, toRegister};
+const toReset = () => {
+	router.push('/reset');
+};
+
+export default {toRecharge, toLogin, toHome, toPersonal, toPayBind, toPickup, toPassword, toRegister, toReset};

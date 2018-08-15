@@ -14,5 +14,7 @@ import pickup from './pickup';
 import password from './password';
 // 注册
 import register from './register';
+// 找回密码
+import reset from './reset';
 
-export {home, login, recharge, paybind, personal, pickup, password, register};
+export {home, login, recharge, paybind, personal, pickup, password, register, reset};

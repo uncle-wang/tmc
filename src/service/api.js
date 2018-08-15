@@ -121,4 +121,12 @@ export default {
 		}
 		return reject(status);
 	},
+	async reset(tel, code, password) {
+
+		const {status} = await ajax('resetPassword', {tel, code, password});
+		if (status === 1000) {
+			return;
+		}
+		return reject(status);
+	},
 };
