@@ -4,8 +4,8 @@ import {router, navigator} from './router/index.js';
 // 基础样式
 import './styles';
 
-// 全局组件
-import {back, codeInput} from './components';
+// 组件
+import {back, codeInput, loading} from './components';
 Vue.component('back', back);
 Vue.component('code-input', codeInput);
 
@@ -23,6 +23,7 @@ const app = new Vue({
 	data: {
 		navigator,
 	},
+	components: {loading},
 	computed: {
 		signed: function() {
 			return store.state.userInfo.signed;
@@ -38,6 +39,9 @@ const app = new Vue({
 		},
 		wechat: function() {
 			return store.state.userInfo.wechat;
+		},
+		loading: function() {
+			return store.state.loading;
 		},
 	},
 	beforeMount: function() {

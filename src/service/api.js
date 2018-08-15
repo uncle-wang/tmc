@@ -4,7 +4,10 @@ import store from './store';
 const resolve = d => Promise.resolve(d);
 const reject  = d => Promise.reject(d);
 
+let loadingTimes = 0;
 const ajax = (api, params) => {
+	loadingTimes ++;
+	store.commit('loading', true);
 	return axios({
 		method: 'POST',
 		baseURL: '/',
@@ -12,11 +15,18 @@ const ajax = (api, params) => {
 		url: api,
 		timeout: 8000,
 	}).then(res => {
+		if (-- loadingTimes <= 0) {
+			store.commit('loading', false);
+		}
 		if (res.status === 200) {
 			return resolve(res.data);
 		}
 		else {
 			return reject({status: 1004});
+		}
+	}).catch(() => {
+		if (-- loadingTimes <= 0) {
+			store.commit('loading', false);
 		}
 	});
 };

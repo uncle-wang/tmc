@@ -12,6 +12,7 @@ const store = new Vuex.Store({
 			alipay: null,
 			wechat: null
 		},
+		loading: false,
 	},
 	mutations: {
 		unsigned(state) {
@@ -38,6 +39,9 @@ const store = new Vuex.Store({
 		},
 		balance: function(state, balance) {
 			state.userInfo.balance = balance;
+		},
+		loading: function(state, s) {
+			state.loading = s;
 		},
 	}
 });

@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="container">
 		<div class="my-card-wrap">
 			<back :white="true"></back>
 			<div class="my-info-wrap">
