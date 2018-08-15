@@ -11,6 +11,8 @@ import personal from './personal';
 // 提现
 import pickup from './pickup';
 // 修改密码
-import password from './password'
+import password from './password';
+// 注册
+import register from './register';
 
-export {home, login, recharge, paybind, personal, pickup, password};
+export {home, login, recharge, paybind, personal, pickup, password, register};

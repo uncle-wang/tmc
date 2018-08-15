@@ -28,4 +28,8 @@ const toPassword = () => {
 	router.push('/password');
 };
 
-export default {toRecharge, toLogin, toHome, toPersonal, toPayBind, toPickup, toPassword};
+const toRegister = () => {
+	router.push('/register');
+};
+
+export default {toRecharge, toLogin, toHome, toPersonal, toPayBind, toPickup, toPassword, toRegister};

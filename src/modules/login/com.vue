@@ -5,7 +5,7 @@
 			<div class="input-wrap"><input type="text" v-model="tel" placeholder="输入手机号"></div>
 			<div class="input-wrap"><input type="password" v-model="password" placeholder="请输入密码"></div>
 			<div class="func-wrap">
-				<a class="func-btn" href="register.html">快速注册</a>
+				<a class="func-btn" @click="$root.navigator.toRegister">快速注册</a>
 				<a class="func-btn" href="reset.html">找回密码</a>
 			</div>
 			<div class="submit-wrap"><input type="submit" class="button" value="登 录"></div>

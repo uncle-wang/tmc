@@ -113,4 +113,12 @@ export default {
 			return reject(data.status);
 		}
 	},
+	async register(tel, code, password) {
+
+		const {status} = await ajax('register', {tel, code, password});
+		if (status === 1000) {
+			return;
+		}
+		return reject(status);
+	},
 };

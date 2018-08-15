@@ -41,6 +41,10 @@ const router = new VueRouter({
 			path: '/password',
 			component: modules.password
 		},
+		{
+			path: '/register',
+			component: modules.register
+		},
 	]
 });
 
