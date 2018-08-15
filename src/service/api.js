@@ -153,4 +153,20 @@ export default {
 		}
 		return reject(status);
 	},
+	async createRecharge(quota, payment, account) {
+
+		const data = await ajax('createRecharge', {quota, payment, account});
+		if (data.status === 1000) {
+			return data.rechargeId;
+		}
+		return reject(data.status);
+	},
+	async cancelRecharge(id) {
+
+		const {status} = await ajax('cancelRecharge', {id});
+		if (status === 1000) {
+			return;
+		}
+		return reject(status);
+	},
 };
