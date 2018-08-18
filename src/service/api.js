@@ -185,4 +185,12 @@ export default {
 		}
 		return reject(data.status);
 	},
+	async removePickup(id) {
+
+		const {status} = await ajax('removePickup', {id});
+		if (status === 1000) {
+			return;
+		}
+		return reject(status);
+	},
 };

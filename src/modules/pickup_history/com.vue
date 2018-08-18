@@ -6,12 +6,13 @@
 				提现历史
 			</div>
 			<ul>
-				<li class="item" v-for="item in pickupList">
+				<li class="item" v-for="(item, index) in pickupList">
 					<div class="status">
 						<span class="pending" v-if="item.status==='0'">正在处理</span>
 						<a class="cancel-btn inline" v-if="item.status==='0'" @click="cancel(item)">取消</a>
 						<span class="finished" v-if="item.status==='1'">已完成</span>
 						<span class="cancel" v-if="item.status==='2'">已取消</span>
+						<a class="cancel-btn inline" v-if="item.status==='2'" @click="remove(item.id, index)">删除</a>
 					</div>
 					<div class="time" v-if="item.status!=='1'">申请时间: {{item.create_time | date}}</div>
 					<div class="time" v-if="item.status==='1'">完成时间: {{item.complete_time | date}}</div>
@@ -76,6 +77,26 @@
 						navigator.toLogin();
 					}
 					else if (status === 3003) {
+						alert('该订单状态发生改变，请您刷新页面后重试');
+					}
+					else {
+						alert('请求异常，请稍后重试');
+					}
+				});
+			},
+			remove: function(id, index) {
+				if (!window.confirm('删除后不可恢复，确定删除吗？')) {
+					return;
+				}
+				api.removePickup(id).then(() => {
+					this.pickupList.splice(index, 1);
+				}).catch(status => {
+					if (status === 1001) {
+						alert('您未登录或登录已超时，请登录后重试');
+						this.$store.commit('unsigned');
+						navigator.toLogin();
+					}
+					else if (status === 3006) {
 						alert('该订单状态发生改变，请您刷新页面后重试');
 					}
 					else {
