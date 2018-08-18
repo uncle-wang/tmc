@@ -27,7 +27,7 @@ export default {
 			}
 		},
 		success: function() {
-			alert('操作成功，系统将会在一个工作日内处理您的提现请求');
+			alert('操作成功，系统将会在一个工作日内处理您的提现请求，您可以到"个人中心-提现记录"中查看提现状态');
 			this.$router.go(-1);
 		},
 		error: function(status) {
