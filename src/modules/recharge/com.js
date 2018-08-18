@@ -15,7 +15,7 @@ export default {
 			// 订单信息
 			order_info: null,
 			// 重定向url
-			redirect: 'http://localhost:8082',
+			redirect: window.location.origin + '/#/me',
 			// apiuser
 			apiUser: 'a7026c0e',
 			// 金额列表
