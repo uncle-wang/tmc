@@ -1,52 +1,59 @@
 import {api} from './../../service';
+import {navigator} from './../../router';
 // 导入二维码图片
 import barcode from './barcode';
 export default {
 	data: function() {
 		return {
-			// 0-选择金额 1-二维码
-			process: 0,
 			// 充值金额
 			quota: null,
-			// 充值方式：0-支付宝 1-微信
-			payment: null,
 			// 充值订单id
 			rechargeId: null,
+			// 签名
+			signature_alipay: null,
+			signature_wechat: null,
+			// 订单信息
+			order_info: null,
+			// 重定向url
+			redirect: 'http://localhost:8082',
+			// apiuser
+			apiUser: 'a7026c0e',
 			// 金额列表
 			quotaList: [10, 20, 50, 100, 300, 1000, 2000, 5000, 10000],
 		};
 	},
 	methods: {
 		// 设置支付方式并创建充值订单
-		createRecharge: function(payment) {
-			const account = payment === '0' ? this.$root.alipay : this.$root.wechat;
-			api.createRecharge(this.quota, payment, account).then((rechargeId) => {
-				this.payment = payment;
-				this.process = 1;
-				this.rechargeId = rechargeId;
+		createRecharge: function(quota) {
+			api.createRecharge(quota, this.redirect).then(orderInfo => {
+				this.quota = quota;
+				this.rechargeId = orderInfo.rechargeId;
+				this.signature_alipay = orderInfo.signature_alipay;
+				this.signature_wechat = orderInfo.signature_wechat;
+				this.order_info = orderInfo.order_info;
 			}).catch(status => {
-				alert('请求异常，请稍后重试');
-			});
-		},
-		// 设置充值金额并跳转至选择支付方式页面
-		setQuota: function(quota) {
-			this.quota = quota;
-		},
-		// 取消订单并返回上一步
-		back: function() {
-			api.cancelRecharge(this.rechargeId).finally(() => {
-				this.process = 0;
+				if (status === 1001) {
+					alert('请先登录');
+					this.$store.commit('unsigned');
+					navigator.toLogin();
+				}
+				else {
+					alert('请求异常，请稍后重试');
+				}
 			});
 		},
 	},
 	computed: {
-		// 支付宝二维码
-		alipayImage: function() {
-			return barcode.alipay['q' + this.quota];
+		// 金额格式化
+		quotaStr: function() {
+			return this.quota + '.00';
 		},
-		// 微信二维码
-		wechatImage: function() {
-			return barcode.wechat['q' + this.quota];
+		// 可提交状态
+		orderAvailable: function() {
+			if (this.quota && this.rechargeId && this.signature_alipay && this.signature_wechat && this.apiUser) {
+				return true;
+			}
+			return false;
 		},
 	},
 };

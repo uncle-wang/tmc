@@ -153,11 +153,11 @@ export default {
 		}
 		return reject(status);
 	},
-	async createRecharge(quota, payment, account) {
+	async createRecharge(quota, redirect) {
 
-		const data = await ajax('createRecharge', {quota, payment, account});
+		const data = await ajax('createRecharge', {quota, redirect});
 		if (data.status === 1000) {
-			return data.rechargeId;
+			return data.orderInfo;
 		}
 		return reject(data.status);
 	},
