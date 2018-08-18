@@ -35,6 +35,16 @@ export default {
 				this.$root.navigator.toPickup();
 			}
 		},
+		toRecharge: function() {
+			if (this.checkSigned()) {
+				this.$root.navigator.toRecharge();
+			}
+		},
+		toPickupHistory: function() {
+			if (this.checkSigned()) {
+				this.$root.navigator.toPickupHistory();
+			}
+		},
 	},
 	filters: {
 		cut: function(tel) {

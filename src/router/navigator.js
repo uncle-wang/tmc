@@ -36,4 +36,19 @@ const toReset = () => {
 	router.push('/reset');
 };
 
-export default {toRecharge, toLogin, toHome, toPersonal, toPayBind, toPickup, toPassword, toRegister, toReset};
+const toPickupHistory = () => {
+	router.push('/pickup_history');
+};
+
+export default {
+	toRecharge,
+	toLogin,
+	toHome,
+	toPersonal,
+	toPayBind,
+	toPickup,
+	toPassword,
+	toRegister,
+	toReset,
+	toPickupHistory
+};

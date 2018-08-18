@@ -14,7 +14,7 @@
 				<a class="my-pay-card">
 					<i class="iconfont icon-yue"></i>余额:{{$root.balance}}
 				</a>
-				<a class="my-pay-card" @click="$root.navigator.toRecharge">
+				<a class="my-pay-card" @click="toRecharge">
 					<i class="iconfont icon-chongzhi0101"></i>充值
 				</a>
 				<a class="my-pay-card" @click="toPickup">
@@ -34,7 +34,7 @@
 				</a>
 			</li>
 			<li class="func-item-wrap">
-				<a class="func-item-link" href="pickup.html">
+				<a class="func-item-link" @click="toPickupHistory">
 					<div class="func-item-title">提现记录</div>
 				</a>
 			</li>

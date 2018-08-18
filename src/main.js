@@ -10,8 +10,9 @@ Vue.component('back', back);
 Vue.component('code-input', codeInput);
 
 // 全局过滤器
-import {currency} from './filters';
+import {currency, date} from './filters';
 Vue.filter('currency', currency);
+Vue.filter('date', date);
 
 // 服务
 import {api, store} from './service';

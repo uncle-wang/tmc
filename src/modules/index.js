@@ -16,5 +16,7 @@ import password from './password';
 import register from './register';
 // 找回密码
 import reset from './reset';
+// 提现历史
+import pickup_history from './pickup_history'
 
-export {home, login, recharge, paybind, personal, pickup, password, register, reset};
+export {home, login, recharge, paybind, personal, pickup, password, register, reset, pickup_history};

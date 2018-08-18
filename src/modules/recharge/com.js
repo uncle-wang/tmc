@@ -1,7 +1,5 @@
 import {api} from './../../service';
 import {navigator} from './../../router';
-// 导入二维码图片
-import barcode from './barcode';
 export default {
 	data: function() {
 		return {

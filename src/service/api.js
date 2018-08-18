@@ -169,4 +169,20 @@ export default {
 		}
 		return reject(status);
 	},
+	async getPickupHistory() {
+
+		const data = await ajax('getPickupHistory');
+		if (data.status === 1000) {
+			return data.pickupList;
+		}
+		return reject(data.status);
+	},
+	async cancelPickup(id) {
+
+		const data = await ajax('cancelPickup', {id});
+		if (data.status === 1000) {
+			return data.balance;
+		}
+		return reject(data.status);
+	},
 };

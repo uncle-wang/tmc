@@ -49,6 +49,10 @@ const router = new VueRouter({
 			path: '/reset',
 			component: modules.reset
 		},
+		{
+			path: '/pickup_history',
+			component: modules.pickup_history
+		},
 	]
 });
 
