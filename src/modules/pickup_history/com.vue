@@ -1,6 +1,6 @@
 <template>
 	<div class="wrap">
-		<div v-show="pickupList.length>0" class="content">
+		<div v-show="empty===false" class="content">
 			<div class="header">
 				<a class="back" @click="$router.go(-1)"><i class="iconfont icon-fanhui1"></i></a>
 				提现历史
@@ -36,7 +36,10 @@
 				</li>
 			</ul>
 		</div>
-		<div v-show="pickupList.length<=0" class="empty">暂无提现记录</div>
+		<div v-show="empty===true">
+			<div class="empty">暂无提现记录</div>
+			<a class="btn outline" @click="$router.go(-1)">返回</a>
+		</div>
 	</div>
 </template>
 <script>
@@ -46,12 +49,20 @@
 		data: function() {
 			return {
 				pickupList: [],
+				empty: null,
 			};
 		},
 		beforeMount: function() {
 			api.getPickupHistory().then(pickupList => {
-				this.pickupList = pickupList;
+				if (pickupList.length > 0) {
+					this.pickupList = pickupList;
+					this.empty = false;
+				}
+				else {
+					this.empty = true;
+				}
 			}).catch(status => {
+				this.empty = true;
 				if (status === 1001) {
 					alert('您未登录或登录已超时，请登录后重试');
 					this.$store.commit('unsigned');
@@ -64,11 +75,11 @@
 		},
 		methods: {
 			cancel: function(item) {
-				if (!window.confirm('取消后手续费将一并退还至您的账户，确定继续？')) {
+				if (!window.confirm('取消后手续费将一并退还至您的账户，确定？')) {
 					return;
 				}
 				api.cancelPickup(item.id).then(balance => {
-					item.status = '1';
+					item.status = '2';
 					this.$store.commit('balance', balance);
 				}).catch(status => {
 					if (status === 1001) {
@@ -90,6 +101,9 @@
 				}
 				api.removePickup(id).then(() => {
 					this.pickupList.splice(index, 1);
+					if (this.pickupList.length <= 0) {
+						this.empty = true;
+					}
 				}).catch(status => {
 					if (status === 1001) {
 						alert('您未登录或登录已超时，请登录后重试');
@@ -135,7 +149,7 @@
 		width: 42px;
 	}
 	.empty {
-		line-height: 400px;
+		padding-top: 200px;
 		text-align: center;
 		color: #b3b3b3;
 	}
