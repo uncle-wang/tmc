@@ -45,6 +45,11 @@ export default {
 				this.$root.navigator.toPickupHistory();
 			}
 		},
+		toRechargeHistory: function() {
+			if (this.checkSigned()) {
+				this.$root.navigator.toRechargeHistory();
+			}
+		},
 	},
 	filters: {
 		cut: function(tel) {

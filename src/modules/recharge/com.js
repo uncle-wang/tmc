@@ -13,7 +13,7 @@ export default {
 			// 订单信息
 			order_info: null,
 			// 重定向url
-			redirect: window.location.origin + '/#/me',
+			redirect: window.location.origin + '/#/recharge_history',
 			// apiuser
 			apiUser: 'a7026c0e',
 			// 金额列表
@@ -39,6 +39,16 @@ export default {
 					alert('请求异常，请稍后重试');
 				}
 			});
+		},
+		quotaUpdate: function(quota) {
+			if (quota !== this.quota) {
+				if (this.rechargeId) {
+					api.cancelRecharge(this.rechargeId).then(() => {this.createRecharge(quota)}).catch(() => {this.createRecharge(quota)});
+				}
+				else {
+					this.createRecharge(quota);
+				}
+			}
 		},
 	},
 	computed: {

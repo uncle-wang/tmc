@@ -53,6 +53,10 @@ const router = new VueRouter({
 			path: '/pickup_history',
 			component: modules.pickup_history
 		},
+		{
+			path: '/recharge_history',
+			component: modules.recharge_history
+		},
 	]
 });
 

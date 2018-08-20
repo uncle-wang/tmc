@@ -18,5 +18,7 @@ import register from './register';
 import reset from './reset';
 // 提现历史
 import pickup_history from './pickup_history'
+// 充值历史
+import recharge_history from './recharge_history'
 
-export {home, login, recharge, paybind, personal, pickup, password, register, reset, pickup_history};
+export {home, login, recharge, paybind, personal, pickup, password, register, reset, pickup_history, recharge_history};

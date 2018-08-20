@@ -4,7 +4,7 @@
 		<div class="quota-select">
 			<p class="page-title">请选择充值金额</p>
 			<ul class="quota-list">
-				<li class="quota-item" :class="{selected: item===quota}" v-for="item in quotaList" @click="createRecharge(item)">
+				<li class="quota-item" :class="{selected: item===quota}" v-for="item in quotaList" @click="quotaUpdate(item)">
 					<div class="quota">{{item | currency}}豆</div>
 					<div class="price">售价:{{item | currency}}元</div>
 				</li>

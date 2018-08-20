@@ -169,6 +169,22 @@ export default {
 		}
 		return reject(status);
 	},
+	async getRechargeHistory() {
+
+		const data = await ajax('getRechargeHistory');
+		if (data.status === 1000) {
+			return data.rechargeList;
+		}
+		return reject(data.status);
+	},
+	async getSignature(id, redirect) {
+
+		const data = await ajax('getSignature', {id, redirect});
+		if (data.status === 1000) {
+			return data.orderInfo;
+		}
+		return reject(data.status);
+	},
 	async getPickupHistory() {
 
 		const data = await ajax('getPickupHistory');

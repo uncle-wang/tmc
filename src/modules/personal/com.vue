@@ -29,7 +29,7 @@
 				</a>
 			</li>
 			<li class="func-item-wrap">
-				<a class="func-item-link" href="recharge.html">
+				<a class="func-item-link" @click="toRechargeHistory">
 					<div class="func-item-title">充值记录</div>
 				</a>
 			</li>

@@ -40,6 +40,10 @@ const toPickupHistory = () => {
 	router.push('/pickup_history');
 };
 
+const toRechargeHistory = () => {
+	router.push('/recharge_history');
+};
+
 export default {
 	toRecharge,
 	toLogin,
@@ -50,5 +54,6 @@ export default {
 	toPassword,
 	toRegister,
 	toReset,
-	toPickupHistory
+	toPickupHistory,
+	toRechargeHistory,
 };
